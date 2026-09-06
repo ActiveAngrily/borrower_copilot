@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A private, adaptive borrowing self-assessment for Indian borrowers." />
+    <title>Lokta Borrower Copilot</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Lokta Borrower Copilot home">
+        <img class="brand-mark" src="lokta-monogram.svg" alt="Lokta" />
+        <span>Borrower Copilot</span>
+      </a>
+      <div class="header-meta">
+        <div class="submission-details">
+          <button class="submission-credit" type="button" aria-expanded="false" aria-controls="submission-contact">Submission by Anant Jamuar</button>
+          <div id="submission-contact" class="contact-popover" role="status">
+            <a href="mailto:jamuaranant@gmail.com">jamuaranant@gmail.com</a>
+            <a href="tel:+91980128636">+91 980128636</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow">Before you speak to a lender</p>
+        <h1>Borrow with a number your household can carry.</h1>
+        <p class="lede">A borrower-side check that keeps likely lender access separate from a safer household boundary. Illustrative guidance—not an application or approval.</p>
+      </section>
+
+      <div class="layout">
+        <form id="assessment-form" novalidate>
+          <div class="form-intro">
+            <div>
+              <p class="eyebrow">Your assessment</p>
+              <h2 id="panel-title">Start with the borrowing need</h2>
+            </div>
+            <div class="progress-copy" aria-live="polite">
+              <span id="step-label">Step 1</span>
+              <span id="step-count">1 of 7</span>
+            </div>
+            <progress id="step-progress" value="1" max="7" aria-label="Assessment progress"></progress>
+            <p class="form-note">Only relevant questions appear. A blank or “I don’t know” answer is never treated as zero.</p>
+          </div>
+
+          <section class="question-panel" data-panel="need" data-title="Start with the borrowing need" aria-labelledby="need-heading">
+            <h3 id="need-heading" tabindex="-1">Borrowing need</h3>
+            <fieldset>
+              <legend><span>01</span> What is the loan for?</legend>
+              <label>Purpose
+                <select name="purpose" required>
+                  <option value="">Choose one</option>
+                  <option value="personal">Wedding or another personal expense</option>
+                  <option value="business">Business investment or expansion</option>
+                  <option value="vehicle">Electric vehicle for earning income</option>
+                  <option value="personal">Vehicle for personal use</option>
+                  <option value="other">Another personal purpose</option>
+                </select>
+              </label>
+              <p class="help">This selects the supported illustrative product path.</p>
+            </fieldset>
+            <fieldset>
+              <legend><span>02</span> How much do you want to borrow?</legend>
+              <label>Requested loan amount (₹)
+                <input name="requested" type="number" min="1" inputmode="numeric" placeholder="e.g. 300000" required />
+              </label>
+              <p class="help">Use contractual principal, not cash left after fees.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="income" data-title="Map the household income" aria-labelledby="income-heading" hidden>
+            <h3 id="income-heading" tabindex="-1">Household income</h3>
+            <fieldset>
+              <legend><span>03</span> What net income is available now?</legend>
+              <div class="two-col amount-pair" data-fields="income">
+                <label>Monthly net income — lower (₹)<input name="incomeLow" type="number" min="0" inputmode="numeric" /></label>
+                <label>Upper, if it is a range (₹)<input name="incomeHigh" type="number" min="0" inputmode="numeric" /></label>
+              </div>
+              <label class="check"><input type="checkbox" data-unknown="income" /> I don’t know my current net income</label>
+              <div class="two-col">
+                <label>Income type
+                  <select name="incomeType"><option value="">Choose one</option><option value="salaried">Salaried</option><option value="self-employed">Self-employed</option><option value="informal">Informal or casual</option><option value="mixed">Mixed</option><option value="unsure">Unsure</option></select>
+                </label>
+                <label>Does it vary materially month to month?
+                  <select name="incomeVariable"><option value="">I don’t know</option><option value="no">No</option><option value="yes">Yes</option></select>
+                </label>
+              </div>
+              <label>Do records support this monthly net-income amount?
+                <select name="records"><option value="">I don’t know</option><option value="yes">Yes</option><option value="part">Only part of it</option><option value="no">No or no records</option></select>
+              </label>
+              <div id="supported-income" hidden class="two-col amount-pair">
+                <label>Record-supported amount — lower (₹)<input name="supportedIncomeLow" type="number" min="0" inputmode="numeric" /></label>
+                <label>Upper, if a range (₹)<input name="supportedIncomeHigh" type="number" min="0" inputmode="numeric" /></label>
+              </div>
+              <p class="help">Use income after work costs and taxes, before household spending and debt. Do not include hoped-for income from this loan.</p>
+            </fieldset>
+            <fieldset>
+              <legend><span>04</span> Does someone contribute to this same budget?</legend>
+              <div class="two-col amount-pair" data-fields="contribution">
+                <label>Available monthly — lower (₹)<input name="contributionLow" type="number" min="0" inputmode="numeric" /></label>
+                <label>Upper, if a range (₹)<input name="contributionHigh" type="number" min="0" inputmode="numeric" /></label>
+              </div>
+              <label class="check"><input type="checkbox" data-unknown="contribution" /> I don’t know</label>
+              <p class="help">Enter 0 only when there is no contribution. Do not enter another person’s full salary unless it is actually available here.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="budget" data-title="Map spending and existing debt" aria-labelledby="budget-heading" hidden>
+            <h3 id="budget-heading" tabindex="-1">Household commitments</h3>
+            <fieldset>
+              <legend><span>05</span> What does the household spend?</legend>
+              <div class="two-col amount-pair" data-fields="expenses">
+                <label>Monthly spending — lower (₹)<input name="expensesLow" type="number" min="0" inputmode="numeric" /></label>
+                <label>Upper, if a range (₹)<input name="expensesHigh" type="number" min="0" inputmode="numeric" /></label>
+              </div>
+              <label class="check"><input type="checkbox" data-unknown="expenses" /> I don’t know</label>
+              <p class="help">Include housing, food, utilities, transport and people supported. Exclude debt and costs already removed from income.</p>
+            </fieldset>
+            <fieldset>
+              <legend><span>06</span> What debt payments are required?</legend>
+              <div class="two-col amount-pair" data-fields="debt">
+                <label>Monthly debt payments — lower (₹)<input name="debtLow" type="number" min="0" inputmode="numeric" /></label>
+                <label>Upper, if a range (₹)<input name="debtHigh" type="number" min="0" inputmode="numeric" /></label>
+              </div>
+              <label class="check"><input type="checkbox" data-unknown="debt" /> I don’t know</label>
+              <label>Does this include every debt where you are borrower or co-borrower?
+                <select name="applicantDebtScope"><option value="">I don’t know</option><option value="same">Yes, same total</option><option value="different">No, I will enter another total</option></select>
+              </label>
+              <div id="applicant-debt" hidden class="two-col amount-pair">
+                <label>Applicant debt — lower (₹)<input name="applicantDebtLow" type="number" min="0" inputmode="numeric" /></label>
+                <label>Applicant debt — upper (₹)<input name="applicantDebtHigh" type="number" min="0" inputmode="numeric" /></label>
+              </div>
+              <label>Is a payment overdue, unresolved after a bounce, under a catch-up plan, paid with another loan, or delaying essentials?
+                <select name="distress"><option value="">I don’t know</option><option value="none">No</option><option value="resolved">A previous problem is resolved</option><option value="active">Yes, now</option></select>
+              </label>
+              <p class="help">Use required payments, not outstanding balances. A resolved bounce is different from a currently unpaid one.</p>
+            </fieldset>
+            <fieldset>
+              <legend><span>07</span> What is your age?</legend>
+              <label>Age in completed years<input name="age" type="number" min="0" max="120" inputmode="numeric" /></label>
+              <p class="help">No date of birth is needed. Unknown age keeps product eligibility unresolved.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="credit" data-title="Add the credit context" aria-labelledby="credit-heading" hidden>
+            <h3 id="credit-heading" tabindex="-1">Credit context</h3>
+            <fieldset>
+              <legend><span>08</span> What do you know about your credit record?</legend>
+              <label>Credit-score availability
+                <select name="credit"><option value="">I don’t know</option><option value="known">I know my score</option><option value="none">I have been told no score is available</option></select>
+              </label>
+              <p class="help">No score is invented and no score-based rate discount is assumed.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="security" data-title="Check the property-backed path" aria-labelledby="security-heading" hidden>
+            <h3 id="security-heading" tabindex="-1">Security</h3>
+            <fieldset>
+              <legend><span>09</span> Can this property support the selected path?</legend>
+              <label>Is it applicant-owned, unencumbered, and are relevant owners willing to participate?
+                <select name="security"><option value="">I don’t know</option><option value="yes">Yes</option><option value="no">No</option></select>
+              </label>
+              <label>Reported property value (₹)<input name="propertyValue" type="number" min="0" inputmode="numeric" /></label>
+              <p class="help">Property can limit a lender estimate. It never becomes household repayment income.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="vehicle" data-title="Check the electric-vehicle path" aria-labelledby="vehicle-heading" hidden>
+            <h3 id="vehicle-heading" tabindex="-1">Vehicle</h3>
+            <fieldset>
+              <legend><span>09</span> What is the on-road vehicle price?</legend>
+              <label>On-road electric two-wheeler price (₹)<input name="vehiclePrice" type="number" min="0" inputmode="numeric" /></label>
+              <p class="help">The illustrative path finances at most 85%; fees and other constraints can require more own funds.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="funding" data-title="Check whether the plan is fully funded" aria-labelledby="funding-heading" hidden>
+            <h3 id="funding-heading" tabindex="-1">Funding</h3>
+            <fieldset>
+              <legend><span>10</span> What must the borrowing pay for?</legend>
+              <label id="general-purpose-cost">Total purpose cost (₹)<input name="purposeCost" type="number" min="0" inputmode="numeric" /></label>
+              <label>Own funds available after protected savings (₹)<input name="ownFunds" type="number" min="0" inputmode="numeric" /></label>
+              <p class="help">Loan fees and the purpose cannot spend the same rupee twice.</p>
+            </fieldset>
+            <fieldset>
+              <legend>Would a smaller version still work?</legend>
+              <label>Smaller-plan viability
+                <select name="smallPlan"><option value="no">No</option><option value="yes">Yes</option><option value="unknown">I’m not sure</option></select>
+              </label>
+              <label id="minimum-purpose-cost" hidden>Minimum acceptable purpose cost (₹)<input name="minimumPurposeCost" type="number" min="0" inputmode="numeric" /></label>
+              <p class="help">A “Borrow less” result needs a genuinely useful smaller plan, not just a lower EMI.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="history" data-title="Test a real low-income month" aria-labelledby="history-heading" hidden>
+            <h3 id="history-heading" tabindex="-1">Income history</h3>
+            <fieldset>
+              <legend>What was the lowest recent net-income month?</legend>
+              <div class="two-col">
+                <label>Lowest monthly net income (₹)<input name="historyLow" type="number" min="0" inputmode="numeric" /></label>
+                <label>Completed months covered<input name="historyMonths" type="number" min="1" max="12" inputmode="numeric" /></label>
+              </div>
+              <p class="help">Use the latest available period, up to 12 completed months, after work or business costs. It is tested separately—not reduced by another 20%.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="productive" data-title="Keep future earnings separate" aria-labelledby="productive-heading" hidden>
+            <h3 id="productive-heading" tabindex="-1">Productive use</h3>
+            <fieldset>
+              <legend>What additional net income could the purchase create?</legend>
+              <div class="two-col">
+                <label>Conservative monthly net increase (₹)<input name="productiveIncome" type="number" min="0" inputmode="numeric" /></label>
+                <label>Months before it begins<input name="productiveDelay" type="number" min="0" inputmode="numeric" /></label>
+              </div>
+              <label>What is the estimate based on?
+                <select name="productiveBasis"><option value="">I don’t know</option><option value="records">Past records</option><option value="orders">Confirmed orders or demand</option><option value="estimate">My estimate</option></select>
+              </label>
+              <p class="help">Enter income after added operating costs, downtime and displaced earnings. It will never raise current safe capacity.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="resilience" data-title="Add only useful refinements" aria-labelledby="resilience-heading" hidden>
+            <h3 id="resilience-heading" tabindex="-1">Resilience and offer</h3>
+            <fieldset>
+              <legend>What emergency money remains after this plan?</legend>
+              <label>Accessible reserves after purchase, fees and earmarks (₹)<input name="reserves" type="number" min="0" inputmode="numeric" /></label>
+              <p class="help">Optional. Reserves show temporary coverage; they never increase recurring capacity.</p>
+            </fieldset>
+            <fieldset>
+              <legend>Is a known one-time expense due within 12 months?</legend>
+              <label>Upcoming commitment
+                <select name="commitmentStatus"><option value="">Skip this refinement</option><option value="no">No</option><option value="yes">Yes</option><option value="unknown">I’m not sure</option></select>
+              </label>
+              <div id="commitment-details" hidden>
+                <div class="two-col">
+                  <label>Amount (₹)<input name="commitmentAmount" type="number" min="0" inputmode="numeric" /></label>
+                  <label>Due in how many months?<input name="commitmentMonths" type="number" min="1" max="12" inputmode="numeric" /></label>
+                  <label>Already set aside (₹)<input name="commitmentEarmarked" type="number" min="0" inputmode="numeric" /></label>
+                  <label>Already included in monthly spending?
+                    <select name="commitmentInExpenses"><option value="">I don’t know</option><option value="yes">Yes</option><option value="no">No</option></select>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Do you have a lender offer to compare?</legend>
+              <label>Actual offer available
+                <select name="hasOffer"><option value="no">No—use the benchmark</option><option value="yes">Yes—check my offer</option></select>
+              </label>
+              <p class="help">Only one-disbursement monthly reducing or explicitly flat-rate offers are supported.</p>
+            </fieldset>
+          </section>
+
+          <section class="question-panel" data-panel="offer" data-title="Read the lender offer as cash flows" aria-labelledby="offer-heading" hidden>
+            <h3 id="offer-heading" tabindex="-1">Actual lender offer</h3>
+            <fieldset>
+              <legend>What are the contractual repayment terms?</legend>
+              <div class="two-col">
+                <label>Contractual principal (₹)<input name="offerAmount" type="number" min="0" inputmode="numeric" /></label>
+                <label>Quoted monthly repayment (₹)<input name="offerEmi" type="number" min="0" inputmode="numeric" /></label>
+                <label>Repayment structure
+                  <select name="offerStructure"><option value="">I don’t know</option><option value="reducing">Reducing balance</option><option value="flat">Explicit flat rate</option><option value="unsupported">Another structure</option></select>
+                </label>
+                <label>Rate type
+                  <select name="offerRateType"><option value="">I don’t know</option><option value="fixed">Fixed</option><option value="floating">Floating</option></select>
+                </label>
+                <label>Stated annual rate (%)<input name="offerRate" type="number" min="0" step="0.01" inputmode="decimal" /></label>
+                <label>Number of monthly repayments<input name="offerMonths" type="number" min="1" step="1" inputmode="numeric" /></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Are all mandatory charges included?</legend>
+              <label>Fee completeness
+                <select name="completeFees"><option value="">I don’t know</option><option value="no">No or incomplete</option><option value="yes">Yes, every category below is complete</option></select>
+              </label>
+              <div id="offer-fees" hidden>
+                <p class="help fee-help">Use 0 only where the offer confirms no charge.</p>
+                <div class="two-col">
+                  <label>Financed fees inside principal (₹)<input name="financedFees" type="number" min="0" inputmode="numeric" /></label>
+                  <label>Fees deducted at disbursal (₹)<input name="deductedFees" type="number" min="0" inputmode="numeric" /></label>
+                  <label>Fees paid separately upfront (₹)<input name="upfrontFees" type="number" min="0" inputmode="numeric" /></label>
+                  <label>Mandatory monthly charge (₹)<input name="recurringFees" type="number" min="0" inputmode="numeric" /></label>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+
+          <p id="form-error" class="error" role="alert"></p>
+          <div class="form-actions">
+            <button id="back" class="secondary" type="button" hidden>Back</button>
+            <button id="next" class="primary" type="button">Continue</button>
+            <button id="submit-assessment" class="primary" type="submit" hidden>See my assessment</button>
+          </div>
+        </form>
+
+        <aside class="privacy-note">
+          <p class="eyebrow">One record, this tab</p>
+          <h2>Private by design.</h2>
+          <p>Your answers stay in memory while this page is open. There is no login, upload, analytics or saved record.</p>
+          <dl>
+            <div><dt>What changes</dt><dd>Questions, calculations and cautions follow your stated path.</dd></div>
+            <div><dt>What does not</dt><dd>No lender approval, guaranteed rate or permanent safety claim.</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <section id="results" hidden aria-live="polite" aria-labelledby="results-title">
+        <div id="result-banner" class="result-banner">
+          <p class="eyebrow">Your current assessment</p>
+          <h2 id="results-title" tabindex="-1"></h2>
+          <p id="result-lead"></p>
+        </div>
+        <div id="result-grid" class="result-grid"></div>
+
+        <article id="negotiation-card" class="negotiation-card">
+          <div class="card-heading"><div><p class="eyebrow">Take this to a lender</p><h2>Negotiation Card</h2></div><span>Current session only</span></div>
+          <div id="card-content"></div>
+          <p class="card-foot">Ask for the Key Facts Statement, complete charges, rate basis, repayment schedule and whether the quoted payment includes every mandatory recurring charge.</p>
+          <div class="actions"><button id="print-card" type="button">Print card</button><button id="share-card" type="button">Share summary</button><button id="reset" type="button" class="quiet">Start again</button></div>
+        </article>
+      </section>
+    </main>
+    <footer>Illustrative borrower guidance. A larger lender estimate never increases household cash flow.</footer>
+    <script type="module" src="app.mjs"></script>
+  </body>
+</html>
