@@ -190,7 +190,7 @@ The final project must satisfy the original challenge:
 - Every important number has a borrower-readable explanation.
 - Rules remain separate from UI code.
 - All three supplied personas must be run through the final system.
-- Final deliverables at the repository root: working app, `RULES.md`, three run-throughs and a five-minute written or recorded walkthrough.
+- Final deliverables at the repository root: working app, `RULES.md`, three run-throughs and a five-minute written walkthrough.
 - All three verdict classes must be reachable using validation cases. Priya, Ravi and Anita are not required to produce one different verdict each.
 - Directional behaviour must be validated: higher expenses/debt cannot improve safe capacity; missing data cannot narrow a range; higher fees increase APR; stress cannot improve the assessed position; unknown credit information receives no synthetic score.
 

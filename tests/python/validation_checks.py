@@ -662,9 +662,12 @@ def reviewer_page_checks():
         for target in re.findall(r'href="([^"]+)"', content):
             if target.startswith("#"):
                 check(group, f"{name} anchor {target}", f'id="{target[1:]}"' in content)
+            elif target.startswith("https://github.com/ActiveAngrily/borrower_copilot/blob/main/"):
+                relative = target.split("/blob/main/", 1)[1]
+                check(group, f"{name} GitHub source {relative}", (ROOT / relative).is_file())
             elif not target.startswith(("https://", "http://")):
                 check(group, f"{name} local link {target}", (page.parent / target).is_file())
-    check(group, "walkthrough video is explicitly pending", "Coming soon" in content)
+    check(group, "walkthrough presents Priya’s written case and card", "Priya" in content and 'class="negotiation-card example-card"' in content)
 
 
 def main():

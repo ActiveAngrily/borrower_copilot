@@ -15,7 +15,11 @@ Household budget → separate stress tests → conservative capacity → lender 
 | Do not borrow under assessed conditions | Known infeasibility or active repayment distress prevents ordinary new borrowing. This is not a permanent label. |
 | Incomplete assessment | Required facts cannot be bounded. Missing core income, expenses or debt stays incomplete even with distress; separately advise stabilization before new debt. |
 
-A lender maximum never increases household capacity. A lower EMI alone does not make an unfunded or unusable plan viable. Unknown access leaves borrower-only guidance conditional. Supported scenarios that disagree remain visible. **Trace:** P01–P04, P19; AV; NC6; ST57–ST76.
+A lender maximum never increases household capacity. A lower EMI alone does not make an unfunded or unusable plan viable. Unknown access leaves borrower-only guidance conditional. Supported scenarios that disagree remain visible.
+
+**Basis and limitations:** The decision combines household capacity, lender access, purpose funding and repayment status. These are the prototype’s decision rules, not a lender approval or a permanent judgement about the borrower.
+
+Technical references: P01–P04, P19; AV; NC6; ST57–ST76.
 
 ## 02 · Count the right money, once
 
@@ -25,7 +29,9 @@ A lender maximum never increases household capacity. A lower EMI alone does not 
 - Historical income uses up to the latest 12 completed months, preserving shorter coverage. Annual income divided by 12 is usable only with compatible definitions, period and current confirmation.
 - Property, reserves, a partner’s full salary and projected business/vehicle earnings do not become current repayment income.
 
-**Trace:** P07–P09, P14; IR; ID; ST39–ST56. These are budget-boundary judgements, not lender income-recognition guarantees.
+**Basis and limitations:** The budget counts current resources and obligations that belong together, without counting the same money twice. These are model judgements about the household budget, not guarantees that a lender will recognize that income.
+
+Technical references: P07–P09, P14; IR; ID; ST39–ST56.
 
 ## 03 · Protect the household first
 
@@ -45,7 +51,11 @@ The 35% total-debt allocation and 10% remaining headroom are our judgements, not
 | Fees · when applicable | Include upfront and recurring effects; never invent missing actual charges. |
 | Productive use · when relevant | Show delayed-income and no-upside exposure separately; projections never raise safe capacity or the recommendation. |
 
-Use the lowest supported applicable capacity, then its conservative principal endpoint. Combine shocks only when reported or contractually coincident. Reserves show temporary coverage after purchase, fees and earmarks; they never raise recurring capacity. Active distress blocks positive ordinary-new-debt advice; a resolved bounce alone is not active distress. **Trace:** C1–C8; P18–P19; ST1–ST76. Shock sizes and horizons are prototype sensitivities, not forecasts or regulatory limits.
+Use the lowest supported applicable capacity, then its conservative principal endpoint. Combine shocks only when reported or contractually coincident. Reserves show temporary coverage after purchase, fees and earmarks; they never raise recurring capacity. Active distress blocks positive ordinary-new-debt advice; a resolved bounce alone is not active distress.
+
+**Basis and limitations:** Capacity follows the approved borrower-ceiling and stress rules. The 20% income shock, 10% expense shock and other scenario sizes and horizons are prototype sensitivities, not forecasts or regulatory limits.
+
+Technical references: C1–C8; P18–P19; ST1–ST76.
 
 ## 04 · Keep lender access separate
 
@@ -63,7 +73,11 @@ The electric path also caps principal at six times J and 85% of on-road price fo
 
 Apply all relevant limits together. Never raise capacity to a product minimum. Unknown age or birthday-sensitive maturity keeps eligibility conditional. Compare the two tenures honestly, including when only one or neither works; do not automatically extend. Use internally consistent scenarios, not mixed favorable endpoints.
 
-**Trace:** L; IR; RT; PC1–PC8. Bands, repayment ratios, maturity rules and selected product constraints are model assumptions. E06/E09/E13/E14/E18 give source context, not certification of named-lender eligibility. Unknown score, verified no-score status and current debt remain distinct.
+Unknown score, verified no-score status and current debt remain distinct.
+
+**Basis and limitations:** The lender estimate combines record-supported income with selected product constraints informed by checked lender evidence. Rate bands, repayment ratios and maturity rules remain model assumptions; the evidence does not certify eligibility with any named lender.
+
+Technical references: L; IR; RT; PC1–PC8. External evidence in the full register: E06/E09/E13/E14/E18.
 
 ## 05 · Check funding and total cost
 
@@ -89,7 +103,11 @@ Actual APR uses complete quoted monthly cash flows and net initial benefit: mont
 
 Reconcile the stated rate and quoted repayment without silently repairing either. A complete supported schedule can establish cash-flow APR even if the rate label is unclear. Unknown mandatory fees keep actual APR incomplete unless defensible approved bounds exist; zero must be explicit. Keep requested and alternative scenarios separate.
 
-The recommendation cannot exceed the request, conservative stress-aware capacity or available conservative lender limit. Floor maximum principal, ceil minimum funding need, and recheck fees, product limits and funding at that amount. Retain internal precision; show whole-rupee principal, monetary detail to two decimals where needed and rates/APR to two decimals. **Trace:** FF; BF; AV; NC. Fee source context: E01/E02/E06/E15–E17; package allowances remain judgement.
+The recommendation cannot exceed the request, conservative stress-aware capacity or available conservative lender limit. Floor maximum principal, ceil minimum funding need, and recheck fees, product limits and funding at that amount. Retain internal precision; show whole-rupee principal, monetary detail to two decimals where needed and rates/APR to two decimals.
+
+**Basis and limitations:** Funding and cost calculations use cash-flow arithmetic, checked external fee evidence and the model’s stated fee packages. Package allowances remain product judgements, not confirmed actual charges or universal lender limits.
+
+Technical references: FF; BF; AV; NC. External evidence in the full register: E01/E02/E06/E15–E17.
 
 ## 06 · Make uncertainty visible
 
@@ -98,7 +116,9 @@ The recommendation cannot exceed the request, conservative stress-aware capacity
 - Confidence is per output: Low or Moderate only, never High or a percentage. Must-only, benchmark and lender-sanction estimates remain Low. Moderate requires method-specific complete current inputs, relevant 12-month variable-income evidence or complete reconciled actual-offer terms; it is not an approval probability.
 - Eight core topics plus up to two conditional topics describe the must-set, not the count of individual fields. Show no more than three related topics per screen. Refinements must affect a number, range, scenario or safety route. Inactive answers stop affecting results; skipped refinements do not become zero.
 
-**Trace:** P05–P06, P10–P13; U; ST77–ST92. More answers alone do not establish more confidence.
+**Basis and limitations:** The questionnaire and confidence labels follow the model’s rules for relevant questions, missing information and evidence quality. These are product judgements, not statistical confidence measures; more answers alone do not establish more confidence.
+
+Technical references: P05–P06, P10–P13; U; ST77–ST92.
 
 ## 07 · Evidence, privacy and review
 
@@ -108,7 +128,11 @@ Answers stay in browser memory: no login, uploads, storage, URL answers, analyti
 
 Validation checks arithmetic, direction, uncertainty, routing and verdicts. Numerical acceptance tolerances are ₹0.01 and 0.001 percentage point APR; tolerance never permits exceeding a cap. Supplied persona facts retain their gaps; separate complete fixtures demonstrate verdict reachability. The wider specification and supported browser scope are distinguished in the full register.
 
-**Trace:** P15–P17; S1–S19; C01–C10; VA1–VA18. Run `node tests/js/rules.test.mjs` and `python3 tests/python/validation_checks.py` from the repository root.
+**Basis and limitations:** Claims and outputs are separated into borrower inputs, arithmetic, labelled product judgements and checked external sources. Conflicting or incomplete evidence stays visible rather than being converted into universal rules.
+
+Technical references: P15–P17; S1–S19; C01–C10; VA1–VA18.
+
+Run `node tests/js/rules.test.mjs` and `python3 tests/python/validation_checks.py` from the repository root.
 
 ## Go deeper
 

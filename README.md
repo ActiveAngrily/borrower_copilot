@@ -49,9 +49,25 @@ This is Anant Jamuar’s submission for the Lokta Borrower Copilot build challen
 | Working prototype | Open the app, choose a borrowing purpose and follow the adaptive assessment through to the Negotiation Card. |
 | Rules and assumptions | Click **Rules** for the [Decision Guide](docs/product/DECISION_GUIDE.md): essential decision logic, thresholds, exceptions, comparison tables and a visual decision sequence. |
 | Full evidence | Follow the guide’s link to the [full rules and source register](docs/product/RULES.md) for individual rule IDs, derivations, source context and unresolved evidence. |
-| Walkthrough | Click **Walkthrough** for the [written tour](docs/handoff/WALKTHROUGH.md). The video is forthcoming; the page clearly marks it as coming soon. |
+| Walkthrough | Click **Walkthrough** for [Priya’s worked example](docs/handoff/WALKTHROUGH.md), including every added assumption, the app’s recommendation and a Negotiation Card. |
 
 The header links open in a new tab so the current assessment keeps its answers. The reviewer pages use the same plum palette, editorial typography and responsive layout as the assessment.
+
+### Walkthrough snapshot · Priya
+
+The worked example preserves Priya’s ₹8 lakh wedding request and all supplied facts. It adds a labelled ₹17,000 estimate for non-rent spending and basic budget/debt clarifications. It invents no smaller wedding, extra savings or lender offer.
+
+| Negotiation Card | Original request with budget clarifications |
+| --- | --- |
+| Verdict | **Do not borrow under assessed conditions** |
+| Requested / recommended | ₹8,00,000 / No amount recommended |
+| Safe capacity | ₹4,28,212–₹5,20,728; lower endpoint governs |
+| Requested-loan payment | ₹31,386.28/month at 24%, 36 months |
+| Binding stress | 20% income drop; ₹16,800/month ceiling |
+| Lender access | Not estimable; income records remain unknown |
+| Pricing | 9.99%–25.01% conditional benchmark APR; Low confidence |
+
+Read the [full example and exact form choices](docs/handoff/WALKTHROUGH.md) for every clarification and remaining unknown. The assignment-only run remains incomplete. Website document links lead to GitHub’s formatted source views.
 
 ## How it works
 
@@ -120,7 +136,7 @@ python3 tests/python/validation_checks.py
 
 The JavaScript check exercises the running rule engine, adaptive routes, verdict classes, offer calculations, floating-rate stress, and inactive-answer handling. The Python check acts as an independent specification oracle and validates documentation, UI invariants, accessibility-related tokens, and the no-persistence/no-network boundary. It also checks that reviewer pages match their Markdown sources and that their local links and section anchors resolve.
 
-The current validation baseline is **589 checks with zero failures**.
+The current validation baseline is **599 checks with zero failures**.
 
 ## Project map
 
@@ -150,7 +166,7 @@ python3 src/build_guides.py
 python3 tests/python/validation_checks.py
 ```
 
-No generation step is needed to run the app. When the video is ready, replace the walkthrough placeholder in `src/build_guides.py` with the recording and regenerate the page.
+No generation step is needed to run the app. The walkthrough is the written Priya case, including its form choices, reasoning and Negotiation Card.
 
 ## Scope and limitations
 

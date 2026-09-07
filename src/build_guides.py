@@ -6,9 +6,9 @@ these local documents are supported; no runtime Markdown dependency.
 from pathlib import Path
 import html
 import re
-import os
 
 ROOT = Path(__file__).resolve().parents[1]
+GITHUB = "https://github.com/ActiveAngrily/borrower_copilot/blob/main/"
 
 
 def render(source):
@@ -19,7 +19,7 @@ def render(source):
         def link(match):
             label, target = match.groups()
             if not target.startswith(('https://', 'http://', '#')):
-                target = os.path.relpath(source.parent / target, ROOT / 'review')
+                target = GITHUB + (source.parent / target).resolve().relative_to(ROOT).as_posix()
             return f'<a href="{target}">{label}</a>'
         return re.sub(r'\[([^\]]+)\]\(([^)]+)\)', link, value)
 
@@ -35,6 +35,10 @@ def render(source):
             blocks.append(f'<h2 id="section-{section}">{inline(title)}</h2>')
         elif lines[0].startswith('|'):
             rows = [[inline(cell.strip()) for cell in line.strip('|').split('|')] for line in lines]
+            if rows[0] == ['Card field', 'Example result']:
+                items = ''.join(f'<div class="card-item"><span>{label}</span><strong>{value}</strong></div>' for label, value in rows[2:])
+                blocks.append('<section class="negotiation-card example-card" aria-label="Priya example Negotiation Card"><div class="card-heading"><div><p class="eyebrow">Priya / Supplemented example</p><h3>Negotiation Card</h3></div><span>Illustrative · 36 months</span></div><div class="card-grid">' + items + '</div><p class="card-foot">Confirm the assumptions and request the lender’s complete Key Facts Statement before acting.</p></section>')
+                continue
             head = ''.join(f'<th scope="col">{cell}</th>' for cell in rows[0])
             body = ''.join('<tr>' + ''.join(f'<td>{cell}</td>' for cell in row) + '</tr>' for row in rows[2:])
             blocks.append(f'<div class="guide-table" tabindex="0" role="region" aria-label="Rule comparison"><table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>')
@@ -52,11 +56,11 @@ def page(name, title, subtitle, source, extra=''):
 <body class="review-page"><a class="skip-link" href="#guide">Skip to content</a>
 <header class="site-header"><a class="brand" href="../index.html"><img class="brand-mark" src="../assets/lokta-monogram.svg" alt="Lokta"><span>Borrower Copilot</span></a><nav class="header-nav" aria-label="Reviewer resources"><a href="../index.html">Assessment</a>{nav}</nav></header>
 <main id="guide"><section class="hero"><p class="eyebrow">Lokta / Reviewer edition</p><h1>{title}</h1><p class="lede">{subtitle}</p></section>
-<div class="guide-toolbar"><span>THE LOGIC, MADE VISIBLE</span><a href="../{source.relative_to(ROOT)}">Read the Markdown ↗</a><a href="../docs/product/RULES.md">Full rule register ↗</a></div>
+<div class="guide-toolbar"><span>THE LOGIC, MADE VISIBLE</span><a href="{GITHUB}{source.relative_to(ROOT)}">Read on GitHub ↗</a><a href="{GITHUB}docs/product/RULES.md">Full rule register ↗</a></div>
 {extra}<article class="guide-content">{render(source)}</article></main><footer>Lokta Borrower Copilot · Illustrative guidance · Private by design</footer></body></html>'''
     (ROOT / 'review' / f'{name}.html').write_text(output)
 
 
 if __name__ == '__main__':
     page('rules', 'Decision Guide', 'The essential rules. The reasoning behind every number. A clear path to the full evidence.', ROOT / 'docs/product/DECISION_GUIDE.md', '<ol class="decision-flow" aria-label="Decision sequence"><li><span>01 / RESOURCES</span>Understand the budget</li><li><span>02 / RESILIENCE</span>Test the difficult months</li><li><span>03 / REALITY</span>Check access &amp; funding</li><li><span>04 / DECISION</span>Explain the next step</li></ol><nav class="guide-jumps" aria-label="Guide sections">' + ''.join(f'<a href="#section-{i}">{label}</a>' for i, label in enumerate(['Verdicts', 'Budget', 'Stress', 'Lender limits', 'Fees & cost', 'Unknowns', 'Evidence', 'Go deeper'], 1)) + '</nav>')
-    page('walkthrough', 'See the thinking.<br>Follow the decision.', 'A five-minute tour of the borrower journey, the calculation boundary and the final Negotiation Card.', ROOT / 'docs/handoff/WALKTHROUGH.md', '<section class="video-placeholder" aria-labelledby="video-title"><span class="video-symbol" aria-hidden="true">▷</span><div><p class="eyebrow">Walkthrough / Video</p><h2 id="video-title">The video is on its way.</h2><p>The recording will appear here when it is ready. Explore the written walkthrough below in the meantime.</p></div><span class="state">Coming soon</span></section>')
+    page('walkthrough', 'See the thinking.<br>Follow the decision.', 'Follow Priya’s wedding-loan example: minimal budget clarifications, the stress that binds and the verdict on her original request.', ROOT / 'docs/handoff/WALKTHROUGH.md')

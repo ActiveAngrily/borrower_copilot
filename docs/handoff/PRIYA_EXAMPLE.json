@@ -1,0 +1,38 @@
+{
+  "kind": "personal",
+  "requested": 800000,
+  "income": {
+    "low": 110000,
+    "high": 110000
+  },
+  "contribution": {
+    "low": 0,
+    "high": 0
+  },
+  "incomeType": "salaried",
+  "incomeVariable": "no",
+  "records": "",
+  "expenses": {
+    "low": 45000,
+    "high": 45000
+  },
+  "debt": {
+    "low": 14000,
+    "high": 14000
+  },
+  "applicantDebt": {
+    "low": 14000,
+    "high": 14000
+  },
+  "distress": "none",
+  "age": 29,
+  "credit": "known",
+  "purposeCost": 800000,
+  "ownFunds": 0,
+  "smallPlan": "no",
+  "reserves": null,
+  "commitment": {
+    "status": ""
+  },
+  "offer": null
+}

@@ -218,11 +218,6 @@ footer { padding:25px; text-align:center; color:var(--muted); font-size:.84rem; 
 .guide-table th, .guide-table td { padding:15px 18px; vertical-align:top; min-width:130px; border-bottom:1px solid var(--line); }
 .guide-table td:first-child { color:var(--brand); font-weight:650; }
 .guide-table tbody tr:last-child td { border-bottom:0; }
-.video-placeholder { display:flex; align-items:center; gap:28px; margin:32px 0; padding:36px; border:1px solid var(--line); border-top:3px solid var(--brand); background:#f2edf0; }
-.video-placeholder h2 { margin:0; font:500 2rem/1.2 Georgia,serif; }
-.video-placeholder p:last-child { max-width:590px; color:var(--muted); margin-bottom:0; }
-.video-symbol { font-size:3rem; color:var(--brand); }
-.video-placeholder .state { white-space:nowrap; margin:0 0 0 auto; }
 .skip-link { position:absolute; left:12px; top:-100px; padding:12px; background:white; z-index:10; }
 .skip-link:focus { top:12px; }
 @media (max-width:960px) {
@@ -240,11 +235,16 @@ footer { padding:25px; text-align:center; color:var(--muted); font-size:.84rem; 
   .header-meta { justify-items:start; }
   .guide-content { padding:0 8px; }
   .decision-flow li { padding:18px; font-size:1.1rem; }
-  .video-placeholder { padding:24px; flex-wrap:wrap; gap:16px; }
-  .video-placeholder .state { margin:0; }
 }
 @media print {
   .review-page .hero { display:grid !important; }
   .guide-toolbar, .guide-jumps, .skip-link { display:none; }
   .guide-table { overflow:visible; }
 }
+
+.example-card { margin:28px 0; }
+.example-card .card-heading h3 { margin:0; font:500 2.35rem/1 Georgia,serif; letter-spacing:-.04em; }
+.example-card .card-item { padding-top:18px; }
+.example-card .card-item strong { color:#fff; line-height:1.5; }
+.guide-content .example-card .eyebrow { color:#c58fac; }
+.guide-content .example-card .card-foot { color:#d9ced4; }

@@ -57,7 +57,7 @@ R9 and R15 are reconciled by [U39](UNCERTAINTY_POLICY.md): usable must-set answe
 | R24 | Requirement from the brief | Keep analytical rules separate from UI code. Code should be readable and rules practical to change during the follow-up session. |
 | R25 | Requirement from the brief | Make the app usable on a phone, show ranges honestly, and disclose where it is guessing. |
 | R26 | Requirement from the brief | Deliver within four calendar days and an expected 12–16 hours of work; communicate if more time is needed. |
-| R27 | Requirement from the brief | Supply the working app, RULES.md, three persona run-throughs, and a five-minute written or recorded walkthrough. Submit a repository link with deliverables at the root. |
+| R27 | Requirement from the brief | Supply the working app, RULES.md, three persona run-throughs, and a five-minute written walkthrough. Submit a repository link with deliverables at the root. |
 | R28 | Requirement from the brief | Document every rule, threshold, band, and assumption in RULES.md using **what · value · why · source or “my judgement.”** |
 | R29 | Proposed judgement | Use a written walkthrough, an option explicitly allowed by the brief, to keep delivery within the time box. It must discuss what to build next and what to cut. |
 

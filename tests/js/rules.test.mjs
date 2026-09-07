@@ -82,4 +82,28 @@ assert(smaller.decision.recommendedAmount < smaller.capacity.safeLow);
 
 const stale = assess(complete({ security: "no", propertyValue: 1, productiveIncome: null }));
 assert.equal(stale.decision.state, healthy.decision.state);
+
+
+// Keep the original Priya request; only the documented budget clarifications are added.
+const { readFileSync } = await import('node:fs');
+const priyaExample = JSON.parse(readFileSync(new URL('../../docs/handoff/PRIYA_EXAMPLE.json', import.meta.url)));
+const priyaResult = assess(priyaExample);
+assert.equal(priyaExample.requested, 800000);
+assert.equal(priyaExample.ownFunds, 0);
+assert.equal(priyaExample.reserves, null);
+assert.equal(priyaExample.smallPlan, 'no');
+assert.equal(priyaResult.decision.state, 'do_not_borrow');
+assert.equal(priyaResult.decision.recommendedAmount, null);
+assert.deepEqual([priyaResult.capacity.safeLow, priyaResult.capacity.safeHigh], [428212, 520728]);
+assert.equal(priyaResult.lender.state, 'not_estimable');
+assert(Math.abs(priyaResult.capacity.lower.resilient - 16800) < .01);
+assert.equal(priyaResult.capacity.binding, 'income');
+assert.equal(priyaResult.funding.gap, 10670);
+assert(Math.abs(priyaResult.capacity.totalOutflow - 31386.28) < .01);
+assert.equal((priyaResult.pricing.apr[1] * 100).toFixed(2), '25.01');
+assert.equal(assess({...priyaExample, expenses:{low:55000,high:55000}}).decision.state, 'do_not_borrow');
+assert.equal(assess({...priyaExample, expenses:null}).decision.state, 'incomplete');
+assert.equal(assess({...priyaExample, contribution:null}).decision.state, 'incomplete');
+const walkthrough = readFileSync(new URL('../../docs/handoff/WALKTHROUGH.md', import.meta.url), 'utf8');
+for (const value of ['₹4,28,212', '₹5,20,728', '₹31,386.28', '₹16,800', '25.01%']) assert(walkthrough.includes(value));
 console.log("rules checks passed");
