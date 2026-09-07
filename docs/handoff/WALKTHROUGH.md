@@ -1,6 +1,6 @@
 # Priya’s ₹8 lakh request — a worked walkthrough
 
-## 01 · The reviewer’s question
+## 01 · The question
 
 **Quick read:** Does Priya’s original ₹8,00,000 wedding-loan request fit her household budget? With the minimal demonstration clarifications below, the app returns **Do not borrow under assessed conditions**: the ₹31,386.28 benchmark payment exceeds the ₹16,800 stressed monthly limit.
 
@@ -117,15 +117,10 @@ The overall result is a verdict, while individual outputs can remain unknown. Ca
 
 Confirm the budget and funding assumptions before acting. Do not presume Priya will change her wedding to fit a recommendation.
 
-## 11 · What the reviewer should inspect next
-
-Reproduce the exact inputs, compare the card with the app, then check the provided-facts-only run to see why missing core inputs matter. The full register holds individual rule IDs, derivations, source dates and evidence limitations.
-
-## Go deeper
+## 11 · Supporting documents
 
 - [Decision Guide](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/product/DECISION_GUIDE.md): quick rules and thresholds.
 - [Walkthrough on GitHub](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/handoff/WALKTHROUGH.md): formatted copy of this worked example.
 - [Full rules and source register](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/product/RULES.md): detailed logic and external evidence.
 - [Provided-facts-only persona runs](../validation/PERSONA_RUNTHROUGHS.md): original facts with no additions.
 - [Exact example inputs](PRIYA_EXAMPLE.json): reproduce the calculation.
-- [Executable example checks](../../tests/js/rules.test.mjs): verdict, card numbers and unknown-data handling.

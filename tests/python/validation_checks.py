@@ -672,7 +672,7 @@ def reviewer_page_checks():
     check(group, "rules quick read and plain decision flow", all(label in guide for label in [
         "Quick read", "Household limit", "Lender estimate", "Funding check", "Stress test", "Final result",
     ]))
-    check(group, "walkthrough quick read and eleven steps", "Quick read:" in content and "11 · What the reviewer should inspect next" in content)
+    check(group, "walkthrough quick read and supporting documents", "Quick read:" in content and "11 · Supporting documents" in content and "Executable example checks" not in content)
     check(group, "facts and demonstration assumptions separated", "Priya’s supplied facts" in content and content.count("Demonstration assumption — confirm with the borrower.") == 12)
     check(group, "both guides link formatted Markdown", all(
         f"https://github.com/ActiveAngrily/borrower_copilot/blob/main/{path}" in page
