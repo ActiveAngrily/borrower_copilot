@@ -2,9 +2,9 @@
 
 Status: Stage 1 content and implementation accepted by the user. Cross-stage audit corrections were subsequently approved.
 
-Current integration: all 15 stages are complete. [Stage 10 analytical rules](ANALYTICAL_RULES.md) define the baseline, [Stage 11 stress testing](STRESS_TESTING.md) defines stress-aware recommendations, [Stage 12 validation](VALIDATION_STRATEGY.md) retains the independent oracle, and Stage 15 implements the supported browser experience without changing this framing.
+Current integration: all 15 stages are complete. [Stage 10 analytical rules](ANALYTICAL_RULES.md) define the baseline, [Stage 11 stress testing](STRESS_TESTING.md) defines stress-aware recommendations, [Stage 12 validation](../validation/VALIDATION_STRATEGY.md) retains the independent oracle, and Stage 15 implements the supported browser experience without changing this framing.
 
-Specification: [Lokta Borrower Copilot challenge](Lokta_Borrower_Copilot_Build_Challenge_v2.html). The brief supplies assignment requirements; the user's collaboration instructions govern stage approvals. Existing research documents are not adopted as evidence or approved rules by this document.
+Specification: [Lokta Borrower Copilot challenge](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html). The brief supplies assignment requirements; the user's collaboration instructions govern stage approvals. Existing research documents are not adopted as evidence or approved rules by this document.
 
 ## Purpose of this stage
 

@@ -1,8 +1,8 @@
 # Stage 11: Stress Testing and Scenario Design
 
-Status: approved specification and calibration. Stage 12 executes V11-01–V11-27 through [validation_checks.py](validation_checks.py), and Stage 15 implements the supported stress paths in `rules.mjs`.
+Status: approved specification and calibration. Stage 12 executes V11-01–V11-27 through [validation_checks.py](../../tests/python/validation_checks.py), and Stage 15 implements the supported stress paths in `rules.mjs`.
 
-References: [assignment](Lokta_Borrower_Copilot_Build_Challenge_v2.html), [Stage 10 analytical rules](ANALYTICAL_RULES.md), [output definitions](OUTPUT_DEFINITIONS.md), [dependency map](OUTPUT_INPUT_MAP.md), [data dictionary](DATA_DICTIONARY.md), [uncertainty policy](UNCERTAINTY_POLICY.md), [questionnaire](QUESTIONNAIRE_DESIGN.md), [adaptive branching](ADAPTIVE_QUESTIONNAIRE.md), and [rule register](RULES.md).
+References: [assignment](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html), [Stage 10 analytical rules](ANALYTICAL_RULES.md), [output definitions](OUTPUT_DEFINITIONS.md), [dependency map](OUTPUT_INPUT_MAP.md), [data dictionary](DATA_DICTIONARY.md), [uncertainty policy](UNCERTAINTY_POLICY.md), [questionnaire](QUESTIONNAIRE_DESIGN.md), [adaptive branching](ADAPTIVE_QUESTIONNAIRE.md), and [rule register](RULES.md).
 
 ## Scope and precedence
 
@@ -325,7 +325,7 @@ Routing order:
 
 ## Stage 11 fixtures executed in Stage 12
 
-These fixtures specify expected behaviour. [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) maps their coverage, and the Stage 12 oracle passes one direct assertion for each V11 fixture as part of its 525-check, zero-failure integrated run. Persona checks preserve supplied facts without inventing supplementary values.
+These fixtures specify expected behaviour. [VALIDATION_STRATEGY.md](../validation/VALIDATION_STRATEGY.md) maps their coverage, and the Stage 12 oracle passes one direct assertion for each V11 fixture as part of its 525-check, zero-failure integrated run. Persona checks preserve supplied facts without inventing supplementary values.
 
 | ID | Fixture | Expected result |
 |---|---|---|

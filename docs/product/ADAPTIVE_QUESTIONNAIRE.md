@@ -158,4 +158,4 @@ An old property value or loan quote must not silently influence a different asse
 
 **BR18 — Proposed judgement (approved):** Add only ADAPTIVE_QUESTIONNAIRE.md. Check BR1–BR18 coverage, topic counts, missing-data behaviour, answer-edit handling, and separation from pending numerical rules. Then stop for implementation review.
 
-Verification remains a routing-oracle check rather than execution of a questionnaire UI. [Stage 12](VALIDATION_STRATEGY.md) now runs the approved routing fixtures. Stage 13 defines the product and UX requirements.
+Verification remains a routing-oracle check rather than execution of a questionnaire UI. [Stage 12](../validation/VALIDATION_STRATEGY.md) now runs the approved routing fixtures. Stage 13 defines the product and UX requirements.

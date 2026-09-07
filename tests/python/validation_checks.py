@@ -12,7 +12,14 @@ import re
 import sys
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
+DOCS = ROOT / "docs"
+PRODUCT = DOCS / "product"
+HANDOFF = DOCS / "handoff"
+RESEARCH = DOCS / "research"
+REFERENCE = ROOT / "reference"
+SOURCE = ROOT / "src"
+TESTS = ROOT / "tests"
 MONEY_TOL = 0.01
 APR_PP_TOL = 0.001
 passed = defaultdict(int)
@@ -528,7 +535,7 @@ def routing_and_persona_checks():
 
 def documentation_checks():
     group = "documentation"
-    markdown = sorted(ROOT.glob("*.md"))
+    markdown = sorted([ROOT / "README.md", *DOCS.glob("**/*.md")])
     broken = []
     for path in markdown:
         text = path.read_text()
@@ -549,22 +556,22 @@ def documentation_checks():
                 broken.append(f"{path.name}: {target}")
     check(group, "all local links resolve", not broken, broken, [])
 
-    stress = (ROOT / "STRESS_TESTING.md").read_text()
+    stress = (PRODUCT / "STRESS_TESTING.md").read_text()
     st_ids = [int(value) for value in re.findall(r"^\| ST(\d+) \|", stress, re.M)]
     fixture_ids = [int(value) for value in re.findall(r"^\| V11-(\d+) \|", stress, re.M)]
     check(group, "ST1-ST92 sequence", st_ids == list(range(1, 93)))
     check(group, "V11-01-V11-27 sequence", fixture_ids == list(range(1, 28)))
 
     id_locations = {
-        "C1": "ANALYTICAL_RULES.md", "NC8": "ANALYTICAL_RULES.md",
-        "U17": "UNCERTAINTY_POLICY.md", "U42": "UNCERTAINTY_POLICY.md",
-        "ST1": "STRESS_TESTING.md", "ST92": "STRESS_TESTING.md",
-        "R30": "REQUIREMENTS.md", "R33": "REQUIREMENTS.md",
+        "C1": PRODUCT / "ANALYTICAL_RULES.md", "NC8": PRODUCT / "ANALYTICAL_RULES.md",
+        "U17": PRODUCT / "UNCERTAINTY_POLICY.md", "U42": PRODUCT / "UNCERTAINTY_POLICY.md",
+        "ST1": PRODUCT / "STRESS_TESTING.md", "ST92": PRODUCT / "STRESS_TESTING.md",
+        "R30": PRODUCT / "REQUIREMENTS.md", "R33": PRODUCT / "REQUIREMENTS.md",
     }
-    for rule_id, filename in id_locations.items():
-        check(group, f"rule ID exists {rule_id}", rule_id in (ROOT / filename).read_text())
+    for rule_id, path in id_locations.items():
+        check(group, f"rule ID exists {rule_id}", rule_id in path.read_text())
 
-    handoff = (ROOT / "HANDOFF.md").read_text()
+    handoff = (HANDOFF / "HANDOFF.md").read_text()
     stage_ids = [int(value) for value in re.findall(r"^\|\s*(\d+)\s*\|", handoff, re.M)]
     check(group, "authoritative 15-stage order", stage_ids[:15] == list(range(1, 16)), stage_ids[:15], list(range(1, 16)))
     check(group, "Stage 13 is complete",
@@ -585,16 +592,24 @@ def documentation_checks():
         "BORROWER_COPILOT_RESEARCH_REPORT.md": "8f8d6b044f038ff73a1300da06fb4dec3e3dd3afdc1729c8fb3d51dde506e0d3",
     }
     for name, expected in expected_hashes.items():
-        actual = sha256((ROOT / name).read_bytes()).hexdigest()
+        source = {
+            "Lokta_Borrower_Copilot_Build_Challenge_v2.html": REFERENCE,
+            "ASTRA_RESEARCH_PROMPT.md": RESEARCH,
+            "BORROWER_COPILOT_RESEARCH_REPORT.md": RESEARCH,
+        }[name]
+        actual = sha256((source / name).read_bytes()).hexdigest()
         check(group, f"unchanged source file {name}", actual == expected, actual, expected)
-    app_files = {"index.html", "styles.css", "rules.mjs", "app.mjs", "rules.test.mjs"}
-    present_app_files = {path.name for path in ROOT.iterdir() if path.is_file() and path.name in app_files}
+    app_files = {ROOT / "index.html", SOURCE / "styles.css", SOURCE / "rules.mjs", SOURCE / "app.mjs", TESTS / "js" / "rules.test.mjs"}
+    present_app_files = {path for path in app_files if path.is_file()}
     check(group, "browser prototype artifacts present", present_app_files == app_files,
-          sorted(present_app_files), sorted(app_files))
+          sorted(path.name for path in present_app_files), sorted(path.name for path in app_files))
+    root_files = {path.name for path in ROOT.iterdir() if path.is_file()}
+    check(group, "root contains entry points only", root_files == {"README.md", "index.html"},
+          sorted(root_files), ["README.md", "index.html"])
     unexpected_files = [path.name for path in ROOT.iterdir()
                         if path.is_file() and path.suffix not in {".md", ".html", ".py", ".mjs", ".css", ".svg"}]
     check(group, "no unexpected runtime artifacts", not unexpected_files, unexpected_files, [])
-    python_files = sorted(path.name for path in ROOT.glob("*.py"))
+    python_files = sorted(path.name for path in TESTS.rglob("*.py"))
     check(group, "validation oracle is the only Python file",
           python_files == ["validation_checks.py"], python_files, ["validation_checks.py"])
 
@@ -602,9 +617,9 @@ def documentation_checks():
 def stage15_ui_checks():
     group = "stage15-ui"
     html = (ROOT / "index.html").read_text()
-    css = (ROOT / "styles.css").read_text()
-    app = (ROOT / "app.mjs").read_text()
-    rules = (ROOT / "rules.mjs").read_text()
+    css = (SOURCE / "styles.css").read_text()
+    app = (SOURCE / "app.mjs").read_text()
+    rules = (SOURCE / "rules.mjs").read_text()
     panels = re.findall(r'<section class="question-panel" data-panel="([^"]+)".*?</section>', html, re.S)
     fieldset_counts = {
         name: block.count("<fieldset")

@@ -8,7 +8,7 @@ This file is the continuation record for the completed Lokta Borrower Copilot pr
 
 Stage 15 was completed on 7 September 2026. The dependency-free app is `index.html`, `styles.css`, `app.mjs`, and `rules.mjs`; it has no backend, login, storage, analytics, upload, or application network call. It now presents at most three related topics per panel, rebuilds the route from current answers, excludes inactive answers, and uses a restrained Lokta-inspired purple/ink visual system.
 
-The pure rule engine now covers the remaining approved observed-low-income, commitment, reserve, productive-income, actual-offer, fee-completeness, flat-rate, and floating-rate stress paths. The four primary outputs and Negotiation Card share the same `assess()` result. `rules.test.mjs` checks the integrated JavaScript engine; `validation_checks.py` retains the independent Stage 12 oracle and adds Stage 15 UI/privacy invariants. [PERSONA_RUNTHROUGHS.md](PERSONA_RUNTHROUGHS.md) records the three provided-only runs, and [WALKTHROUGH.md](WALKTHROUGH.md) is the final written tour.
+The pure rule engine now covers the remaining approved observed-low-income, commitment, reserve, productive-income, actual-offer, fee-completeness, flat-rate, and floating-rate stress paths. The four primary outputs and Negotiation Card share the same `assess()` result. `rules.test.mjs` checks the integrated JavaScript engine; `validation_checks.py` retains the independent Stage 12 oracle and adds Stage 15 UI/privacy invariants. [PERSONA_RUNTHROUGHS.md](../validation/PERSONA_RUNTHROUGHS.md) records the three provided-only runs, and [WALKTHROUGH.md](WALKTHROUGH.md) is the final written tour.
 
 The project is a borrower-side self-assessment for Indian borrowers. It must help a person decide whether to:
 
@@ -37,27 +37,27 @@ Project folder:
 
 Current Markdown artifacts:
 
-- [PROBLEM_FRAMING.md](PROBLEM_FRAMING.md)
-- [REQUIREMENTS.md](REQUIREMENTS.md)
-- [OUTPUT_DEFINITIONS.md](OUTPUT_DEFINITIONS.md)
-- [OUTPUT_INPUT_MAP.md](OUTPUT_INPUT_MAP.md)
-- [DATA_DICTIONARY.md](DATA_DICTIONARY.md)
-- [UNCERTAINTY_POLICY.md](UNCERTAINTY_POLICY.md)
-- [RULES.md](RULES.md)
-- [QUESTIONNAIRE_DESIGN.md](QUESTIONNAIRE_DESIGN.md)
-- [ADAPTIVE_QUESTIONNAIRE.md](ADAPTIVE_QUESTIONNAIRE.md)
-- [ANALYTICAL_RULES.md](ANALYTICAL_RULES.md)
-- [STRESS_TESTING.md](STRESS_TESTING.md)
-- [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md)
-- [validation_checks.py](validation_checks.py)
-- [ASTRA_RESEARCH_PROMPT.md](ASTRA_RESEARCH_PROMPT.md)
-- [BORROWER_COPILOT_RESEARCH_REPORT.md](BORROWER_COPILOT_RESEARCH_REPORT.md)
-- [STAGE_15_IMPLEMENTATION_PLAN.md](STAGE_15_IMPLEMENTATION_PLAN.md)
-- [PERSONA_RUNTHROUGHS.md](PERSONA_RUNTHROUGHS.md)
+- [PROBLEM_FRAMING.md](../product/PROBLEM_FRAMING.md)
+- [REQUIREMENTS.md](../product/REQUIREMENTS.md)
+- [OUTPUT_DEFINITIONS.md](../product/OUTPUT_DEFINITIONS.md)
+- [OUTPUT_INPUT_MAP.md](../product/OUTPUT_INPUT_MAP.md)
+- [DATA_DICTIONARY.md](../product/DATA_DICTIONARY.md)
+- [UNCERTAINTY_POLICY.md](../product/UNCERTAINTY_POLICY.md)
+- [RULES.md](../product/RULES.md)
+- [QUESTIONNAIRE_DESIGN.md](../product/QUESTIONNAIRE_DESIGN.md)
+- [ADAPTIVE_QUESTIONNAIRE.md](../product/ADAPTIVE_QUESTIONNAIRE.md)
+- [ANALYTICAL_RULES.md](../product/ANALYTICAL_RULES.md)
+- [STRESS_TESTING.md](../product/STRESS_TESTING.md)
+- [VALIDATION_STRATEGY.md](../validation/VALIDATION_STRATEGY.md)
+- [validation_checks.py](../../tests/python/validation_checks.py)
+- [ASTRA_RESEARCH_PROMPT.md](../research/ASTRA_RESEARCH_PROMPT.md)
+- [BORROWER_COPILOT_RESEARCH_REPORT.md](../research/BORROWER_COPILOT_RESEARCH_REPORT.md)
+- [STAGE_15_IMPLEMENTATION_PLAN.md](../planning/STAGE_15_IMPLEMENTATION_PLAN.md)
+- [PERSONA_RUNTHROUGHS.md](../validation/PERSONA_RUNTHROUGHS.md)
 - [WALKTHROUGH.md](WALKTHROUGH.md)
 - [HANDOFF.md](HANDOFF.md)
 
-The original assignment brief is [Lokta_Borrower_Copilot_Build_Challenge_v2.html](Lokta_Borrower_Copilot_Build_Challenge_v2.html).
+The original assignment brief is [Lokta_Borrower_Copilot_Build_Challenge_v2.html](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html).
 
 The project now has a completed static adaptive questionnaire, pure browser calculation engine, final persona artifact, written walkthrough, and independent validation oracle. It intentionally has no backend or persistence layer.
 
@@ -422,7 +422,7 @@ The Stage 10 handoff and subsequent user approvals established the following seq
 10. Conditional benchmark fee packages BF1–BF6 explicitly approved by the user.
 11. Numerical conventions and checks NC1–NC8, including the AV8/NC6 rounding correction, explicitly approved by the user.
 
-The complete consolidated specification is [ANALYTICAL_RULES.md](ANALYTICAL_RULES.md). It is the authoritative Stage 10 method document for the next chat.
+The complete consolidated specification is [ANALYTICAL_RULES.md](../product/ANALYTICAL_RULES.md). It is the authoritative Stage 10 method document for the next chat.
 
 ## Stage 10 calculation design
 

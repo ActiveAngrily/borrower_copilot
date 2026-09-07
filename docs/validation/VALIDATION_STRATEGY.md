@@ -1,8 +1,8 @@
 # Stage 12: Validation Strategy and Results
 
-Status: Stage 12 is approved and implemented. The dependency-free oracle is [validation_checks.py](validation_checks.py); Stage 15 extends it with static UI/privacy checks and adds [rules.test.mjs](rules.test.mjs) for the running browser engine. Neither suite is empirical evidence that the prototype judgements are universally safe.
+Status: Stage 12 is approved and implemented. The dependency-free oracle is [validation_checks.py](../../tests/python/validation_checks.py); Stage 15 extends it with static UI/privacy checks and adds [rules.test.mjs](../../tests/js/rules.test.mjs) for the running browser engine. Neither suite is empirical evidence that the prototype judgements are universally safe.
 
-References: [assignment](Lokta_Borrower_Copilot_Build_Challenge_v2.html), [requirements](REQUIREMENTS.md), [analytical rules](ANALYTICAL_RULES.md), [stress testing](STRESS_TESTING.md), [uncertainty policy](UNCERTAINTY_POLICY.md), [questionnaire](QUESTIONNAIRE_DESIGN.md), [adaptive routing](ADAPTIVE_QUESTIONNAIRE.md), and [rule register](RULES.md).
+References: [assignment](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html), [requirements](../product/REQUIREMENTS.md), [analytical rules](../product/ANALYTICAL_RULES.md), [stress testing](../product/STRESS_TESTING.md), [uncertainty policy](../product/UNCERTAINTY_POLICY.md), [questionnaire](../product/QUESTIONNAIRE_DESIGN.md), [adaptive routing](../product/ADAPTIVE_QUESTIONNAIRE.md), and [rule register](../product/RULES.md).
 
 ## Scope and conflict check
 

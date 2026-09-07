@@ -2,7 +2,7 @@
 
 Status: Stage 5 content and implementation accepted by the user. Cross-stage audit corrections were subsequently approved.
 
-Stage 12 update: approved extensions below support [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md); [validation strategy](VALIDATION_STRATEGY.md) verifies their critical boundaries and persona provenance. They remain documentation identifiers, not an application schema.
+Stage 12 update: approved extensions below support [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md); [validation strategy](../validation/VALIDATION_STRATEGY.md) verifies their critical boundaries and persona provenance. They remain documentation identifiers, not an application schema.
 
 References: [accepted dependency map](OUTPUT_INPUT_MAP.md) and [accepted output definitions](OUTPUT_DEFINITIONS.md).
 

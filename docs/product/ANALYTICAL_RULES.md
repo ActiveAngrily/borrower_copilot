@@ -2,7 +2,7 @@
 
 Status: approved specification. Stage 12 retains its independent validation oracle, and Stage 15 implements the supported calculations in `rules.mjs` with integrated checks in `rules.test.mjs`.
 
-References: [assignment](Lokta_Borrower_Copilot_Build_Challenge_v2.html), [problem framing](PROBLEM_FRAMING.md), [requirements](REQUIREMENTS.md), [output definitions](OUTPUT_DEFINITIONS.md), [dependency map](OUTPUT_INPUT_MAP.md), [dictionary](DATA_DICTIONARY.md), [uncertainty policy](UNCERTAINTY_POLICY.md), [rule/source register](RULES.md), [questionnaire](QUESTIONNAIRE_DESIGN.md), and [branching](ADAPTIVE_QUESTIONNAIRE.md).
+References: [assignment](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html), [problem framing](PROBLEM_FRAMING.md), [requirements](REQUIREMENTS.md), [output definitions](OUTPUT_DEFINITIONS.md), [dependency map](OUTPUT_INPUT_MAP.md), [dictionary](DATA_DICTIONARY.md), [uncertainty policy](UNCERTAINTY_POLICY.md), [rule/source register](RULES.md), [questionnaire](QUESTIONNAIRE_DESIGN.md), and [branching](ADAPTIVE_QUESTIONNAIRE.md).
 
 ## Approval record and precedence
 
@@ -278,7 +278,7 @@ Recheck principal-dependent charges at the selected whole-rupee amount. If minim
 
 ### Numerical acceptance cases
 
-These are specification fixtures, not application tests or persona outcomes. Stage 12 executes them through [validation_checks.py](validation_checks.py), alongside the wider behavioral suite documented in [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md).
+These are specification fixtures, not application tests or persona outcomes. Stage 12 executes them through [validation_checks.py](../../tests/python/validation_checks.py), alongside the wider behavioral suite documented in [VALIDATION_STRATEGY.md](../validation/VALIDATION_STRATEGY.md).
 
 | Case | Expected result |
 |---|---|

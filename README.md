@@ -26,8 +26,8 @@ Open [http://localhost:8000](http://localhost:8000), then stop the server with `
 ## Verify
 
 ```bash
-node rules.test.mjs
-python3 validation_checks.py
+node tests/js/rules.test.mjs
+python3 tests/python/validation_checks.py
 ```
 
 The JavaScript check covers the running decision engine and adaptive route. The Python oracle covers the approved Stage 10–12 specification, documentation, and Stage 15 static UI invariants.
@@ -35,13 +35,12 @@ The JavaScript check covers the running decision engine and adaptive route. The 
 ## Project map
 
 - `index.html` — semantic adaptive questionnaire and result structure
-- `styles.css` — responsive Lokta-inspired visual system
-- `lokta-monogram.svg` — supplied square Lokta mark used in the header
-- `app.mjs` — in-memory navigation, form reading, rendering, print/share/reset
-- `rules.mjs` — pure routing, calculations, states, stresses, and decision logic
-- `RULES.md` — approved rules, assumptions, and source register
-- `PERSONA_RUNTHROUGHS.md` — Priya, Ravi, and Anita using supplied facts only
-- `WALKTHROUGH.md` — five-minute product and implementation tour
+- `src/` — browser controller, rule engine, and styles
+- `assets/` — supplied Lokta mark
+- `tests/` — JavaScript engine checks and the Python specification oracle
+- `docs/product/RULES.md` — approved rules, assumptions, and source register
+- `docs/validation/PERSONA_RUNTHROUGHS.md` — Priya, Ravi, and Anita using supplied facts only
+- `docs/handoff/WALKTHROUGH.md` — five-minute product and implementation tour
 
 ## Boundaries
 

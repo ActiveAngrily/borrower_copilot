@@ -1,12 +1,12 @@
 # Stage 7: Rules, Assumptions, and Source Register
 
-Status: Stages 1–15 are complete. [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) and [validation_checks.py](validation_checks.py) retain the deterministic specification oracle; `rules.mjs` implements the browser decision engine, and `rules.test.mjs` checks its integrated paths.
+Status: Stages 1–15 are complete. [VALIDATION_STRATEGY.md](../validation/VALIDATION_STRATEGY.md) and [validation_checks.py](../../tests/python/validation_checks.py) retain the deterministic specification oracle; `rules.mjs` implements the browser decision engine, and `rules.test.mjs` checks its integrated paths.
 
 Research access date: **6 September 2026 (Asia/Kolkata)**. Access dates record this research session, not the dates claimed by the earlier local report. This is a bounded primary-source review, not a representative lending-market dataset or a comprehensive legal opinion.
 
 ## 1. How to use this register
 
-**Requirement from the brief:** Every rule, threshold, band, and assumption must have a **what · value · why · source or “my judgement”** record. See [the assignment](Lokta_Borrower_Copilot_Build_Challenge_v2.html), Deliverables, item 2.
+**Requirement from the brief:** Every rule, threshold, band, and assumption must have a **what · value · why · source or “my judgement”** record. See [the assignment](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html), Deliverables, item 2.
 
 **Proposed judgement (approved):** Published facts, mathematical derivations, and product judgements are different kinds of support. A citation to a lender does not turn our affordability judgement into that lender's policy. Evidence checked here is available for later proposals; its numerical values are **not automatically adopted as app rules**.
 
@@ -64,7 +64,7 @@ These policies are approved and implemented within the supported Stage 15 browse
 | P14 — Productive and secured paths | Proposed judgement | Consider Ravi's secured/productive path; collateral does not create repayment income; partner/projected earnings are not automatic resources | Preserve purpose and repayment reality | My judgement; brief's Ravi routing requirement; [F11–F13](PROBLEM_FRAMING.md); [M20–M23](OUTPUT_INPUT_MAP.md); [U22–U24](UNCERTAINTY_POLICY.md) | O1–O4 |
 | P15 — Cost and scenario integrity | Proposed judgement | Separate interest and APR, identify charge timing, keep requested and alternative scenarios distinct; Card reuses results | Comparable and explainable outputs | My judgement implementing brief O3/O4/Card; [O-D1–O-D5, O-D14–O-D23](OUTPUT_DEFINITIONS.md); [M12, M28–M30](OUTPUT_INPUT_MAP.md) | O3, O4, Card |
 | P16 — Privacy | Proposed judgement | Answers only in browser memory; no storage, URLs, logs, analytics, or external transmission of answers | Implement brief's privacy limits | My judgement; [R21–R24](REQUIREMENTS.md) | Entire app |
-| P17 — Validation and persona provenance | Proposed judgement | Deterministic numerical, directional, state, routing and documentation checks; supplied personas retain their missing facts; independent generic fixtures establish verdict reachability | Prevent fitting rules to desired persona answers while making the specification executable | My judgement; approved Stage 12; [validation strategy](VALIDATION_STRATEGY.md), [F14](PROBLEM_FRAMING.md), [R30–R33](REQUIREMENTS.md) | Validation |
+| P17 — Validation and persona provenance | Proposed judgement | Deterministic numerical, directional, state, routing and documentation checks; supplied personas retain their missing facts; independent generic fixtures establish verdict reachability | Prevent fitting rules to desired persona answers while making the specification executable | My judgement; approved Stage 12; [validation strategy](../validation/VALIDATION_STRATEGY.md), [F14](PROBLEM_FRAMING.md), [R30–R33](REQUIREMENTS.md) | Validation |
 | P18 — Stress and resilience | Proposed judgement | Always run separate 20% income-drop and 10% expense-rise cases for three months; run observed-income, floating-rate, fee, commitment, productive-income and distress cases only when their facts apply; combine shocks only when reported or contractually coincident | Provide a conservative, explainable decision without inventing correlation | My judgement; approved Stage 11; [ST1–ST76](STRESS_TESTING.md) | O1, O2, O4, Card |
 | P19 — Distress precedence | Proposed judgement | Active repayment distress blocks positive ordinary-new-debt guidance. With usable core I/E/D it yields “Do not borrow under assessed conditions”; with missing core I/E/D, U17 keeps the overall assessment incomplete while a separate stabilization-first safety action says not to add ordinary debt | Preserve the approved unknown-data rule while responding safely to disclosed distress | My judgement; approved Stage 11; [ST57–ST65, ST75](STRESS_TESTING.md), [U17](UNCERTAINTY_POLICY.md) | O1, Card |
 
@@ -200,7 +200,7 @@ Every entry is an **open question** or explicit evidence-use limitation; none au
 | C09 | Regulatory applicability | Relevant source sections were checked, but this is not an exhaustive amendment/consolidation review or a certification of the app's legal status. Recheck applicable current instructions when adopting a legal claim. |
 | C10 | Persona prerequisites | No source fills missing household expenses, monthly EMIs, willingness to pledge, or productive net-income estimates. Additional persona assumptions remain separately approvable; no persona was run or assigned a verdict. |
 
-**Proposed judgement (approved S8–S10):** [The earlier local report](BORROWER_COPILOT_RESEARCH_REPORT.md) was used to locate candidate sources; its numerical recommendations and conclusions are not adopted. [The research prompt](ASTRA_RESEARCH_PROMPT.md) is context only. Unused search results, old PDFs and third-party summaries are not silently promoted to checked sources.
+**Proposed judgement (approved S8–S10):** [The earlier local report](../research/BORROWER_COPILOT_RESEARCH_REPORT.md) was used to locate candidate sources; its numerical recommendations and conclusions are not adopted. [The research prompt](../research/ASTRA_RESEARCH_PROMPT.md) is context only. Unused search results, old PDFs and third-party summaries are not silently promoted to checked sources.
 
 ## 5. Analytical decision status after Stage 10
 
@@ -315,12 +315,12 @@ The 20% income severity, 10% expense severity, three-month duration, 2 percentag
 
 | Rule / what | Value or behaviour | Why | Source or “my judgement” | Scope |
 |---|---|---|---|---|
-| VA1–VA6 — oracle and precision | One deterministic offline Python-standard-library oracle; approved ₹0.01 money and 0.001-percentage-point APR tolerances; direct fixtures plus bounded sweeps | Make rules runnable without choosing the app architecture | My judgement; approved Stage 12; [full strategy](VALIDATION_STRATEGY.md) | Numerical validation |
+| VA1–VA6 — oracle and precision | One deterministic offline Python-standard-library oracle; approved ₹0.01 money and 0.001-percentage-point APR tolerances; direct fixtures plus bounded sweeps | Make rules runnable without choosing the app architecture | My judgement; approved Stage 12; [full strategy](../validation/VALIDATION_STRATEGY.md) | Numerical validation |
 | VA7–VA12 — state and routing | Preserve unknown/zero/not-applicable, per-output dependencies, range containment, verdict precedence, confidence conditions and value-of-information routing | Exercise non-numerical rules that can otherwise fail silently | My judgement; approved Stage 12 | Behaviour validation |
 | VA13–VA14 — persona provenance | Assignment facts remain immutable; generic complete fixtures remain separate from Priya, Ravi and Anita | Avoid tuning or invented persona facts | My judgement; F14/R30–R33 | Persona validation |
 | VA15–VA18 — failure and completion | Identify failed group/check and expected/actual values; no silent policy resolution; no network/dependencies/storage; complete only on zero exit | Keep validation reviewable and reproducible | My judgement; approved Stage 12 | Entire harness |
 
-Run `python3 validation_checks.py` from the repository root. The integrated Stage 12 run passed **525 checks with zero failures** on 6 September 2026; category results and limitations are recorded in [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md).
+Run `python3 validation_checks.py` from the repository root. The integrated Stage 12 run passed **525 checks with zero failures** on 6 September 2026; category results and limitations are recorded in [VALIDATION_STRATEGY.md](../validation/VALIDATION_STRATEGY.md).
 
 ## 9. Stage 15 implementation traceability
 

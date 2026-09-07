@@ -2,9 +2,9 @@
 
 Status: Stage 4 content and implementation accepted by the user. Cross-stage audit corrections were subsequently approved.
 
-Stage 15 update: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) resolve the dependency chain; the browser engine implements the supported paths and the independent [validation strategy](VALIDATION_STRATEGY.md) continues to check their states, routing and formulas.
+Stage 15 update: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) resolve the dependency chain; the browser engine implements the supported paths and the independent [validation strategy](../validation/VALIDATION_STRATEGY.md) continues to check their states, routing and formulas.
 
-References: [assignment specification](Lokta_Borrower_Copilot_Build_Challenge_v2.html), [accepted requirements](REQUIREMENTS.md), and [accepted output definitions](OUTPUT_DEFINITIONS.md).
+References: [assignment specification](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html), [accepted requirements](REQUIREMENTS.md), and [accepted output definitions](OUTPUT_DEFINITIONS.md).
 
 This stage works backward from the approved outputs to the information needed to produce them. It separates borrower information, reference information and judgements, and derived results. These are information needs, not questionnaire questions or must-question assignments. “Proposed judgement” identifies the origin of a decision; the judgements below have been approved for Stage 4.
 

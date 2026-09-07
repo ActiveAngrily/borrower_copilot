@@ -2,9 +2,9 @@
 
 Status: Stage 3 content and implementation accepted by the user. Cross-stage audit corrections were subsequently approved.
 
-Stage 15 update: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) supply the approved methods; the browser app implements the supported outputs and the independent [validation strategy](VALIDATION_STRATEGY.md) checks their numerical, state, confidence and verdict rules.
+Stage 15 update: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) supply the approved methods; the browser app implements the supported outputs and the independent [validation strategy](../validation/VALIDATION_STRATEGY.md) checks their numerical, state, confidence and verdict rules.
 
-References: [assignment specification](Lokta_Borrower_Copilot_Build_Challenge_v2.html), [accepted problem framing](PROBLEM_FRAMING.md), and [accepted requirements](REQUIREMENTS.md).
+References: [assignment specification](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html), [accepted problem framing](PROBLEM_FRAMING.md), and [accepted requirements](REQUIREMENTS.md).
 
 This document defines what each result means and what must accompany it, before deciding how to calculate it. It contains no lending thresholds, formulas, or UI layout. “Proposed judgement” identifies the origin of a decision; the judgements recorded here have been approved for Stage 3.
 

@@ -2,9 +2,9 @@
 
 Status: Stage 2 content and implementation accepted by the user. Cross-stage audit corrections were subsequently approved.
 
-Stage 15 integration: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) supply the approved methods; the browser app implements the supported assignment scope; and [validation strategy](VALIDATION_STRATEGY.md) retains the independent oracle. All final assignment artifacts are present at the repository root.
+Stage 15 integration: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) supply the approved methods; the browser app implements the supported assignment scope; and [validation strategy](../validation/VALIDATION_STRATEGY.md) retains the independent oracle. All final assignment artifacts are present at the repository root.
 
-Sources: [assignment specification](Lokta_Borrower_Copilot_Build_Challenge_v2.html), [accepted problem framing](PROBLEM_FRAMING.md), and the user's explicit collaboration constraints.
+Sources: [assignment specification](../../reference/Lokta_Borrower_Copilot_Build_Challenge_v2.html), [accepted problem framing](PROBLEM_FRAMING.md), and the user's explicit collaboration constraints.
 
 This checklist defines required capabilities, limits, and completion evidence. It does not select formulas, lending thresholds, a framework, or UI components. “Proposed judgement” identifies the origin of a decision; those judgements below are approved for Stage 2. External claims remain unverified and external research is not authorized by this stage.
 

@@ -2,7 +2,7 @@
 
 Status: Stage 6 content and implementation accepted by the user. Cross-stage audit corrections were subsequently approved.
 
-Stage 12 update: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) supply the approved methods; [validation strategy](VALIDATION_STRATEGY.md) executes unknown/zero, range, output-state, distress and confidence checks. Actual unknown fees and hypothetical benchmark budgets stay separate.
+Stage 12 update: [analytical rules](ANALYTICAL_RULES.md) and [stress testing](STRESS_TESTING.md) supply the approved methods; [validation strategy](../validation/VALIDATION_STRATEGY.md) executes unknown/zero, range, output-state, distress and confidence checks. Actual unknown fees and hypothetical benchmark budgets stay separate.
 
 References: [accepted data dictionary](DATA_DICTIONARY.md), [accepted requirements](REQUIREMENTS.md), and [accepted output definitions](OUTPUT_DEFINITIONS.md).
 

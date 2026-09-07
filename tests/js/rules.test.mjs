@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { assess, ceiling, emi, flatPayment, inverseFlatPrincipal, inversePrincipal, monthlyApr, questionRoute } from "./rules.mjs";
+import { assess, ceiling, emi, flatPayment, inverseFlatPrincipal, inversePrincipal, monthlyApr, questionRoute } from "../../src/rules.mjs";
 
 const complete = (overrides = {}) => ({
   kind: "personal", requested: 100000, income: { low: 100000, high: 100000 }, contribution: { low: 0, high: 0 },
