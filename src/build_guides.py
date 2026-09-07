@@ -33,6 +33,11 @@ def render(source):
             title = lines[0][3:]
             section += 1
             blocks.append(f'<h2 id="section-{section}">{inline(title)}</h2>')
+        elif block.startswith('**Decision sequence:** '):
+            steps = block.removeprefix('**Decision sequence:** ').rstrip('.').split(' → ')
+            blocks.append('<ol class="decision-flow" aria-label="Decision sequence" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">' + ''.join(f'<li><span>0{i}</span>{inline(step)}</li>' for i, step in enumerate(steps, 1)) + '</ol>')
+        elif block.startswith('Technical references:'):
+            blocks.append('<details class="help"><summary>Technical references</summary><p>' + inline(block.removeprefix('Technical references: ')) + '</p></details>')
         elif lines[0].startswith('|'):
             rows = [[inline(cell.strip()) for cell in line.strip('|').split('|')] for line in lines]
             if rows[0] == ['Card field', 'Example result']:
@@ -62,5 +67,5 @@ def page(name, title, subtitle, source, extra=''):
 
 
 if __name__ == '__main__':
-    page('rules', 'Decision Guide', 'The essential rules. The reasoning behind every number. A clear path to the full evidence.', ROOT / 'docs/product/DECISION_GUIDE.md', '<ol class="decision-flow" aria-label="Decision sequence"><li><span>01 / RESOURCES</span>Understand the budget</li><li><span>02 / RESILIENCE</span>Test the difficult months</li><li><span>03 / REALITY</span>Check access &amp; funding</li><li><span>04 / DECISION</span>Explain the next step</li></ol><nav class="guide-jumps" aria-label="Guide sections">' + ''.join(f'<a href="#section-{i}">{label}</a>' for i, label in enumerate(['Verdicts', 'Budget', 'Stress', 'Lender limits', 'Fees & cost', 'Unknowns', 'Evidence', 'Go deeper'], 1)) + '</nav>')
-    page('walkthrough', 'See the thinking.<br>Follow the decision.', 'Follow Priya’s wedding-loan example: minimal budget clarifications, the stress that binds and the verdict on her original request.', ROOT / 'docs/handoff/WALKTHROUGH.md')
+    page('rules', 'Decision Guide', 'What the app decides, what it checks and where its limits lie.', ROOT / 'docs/product/DECISION_GUIDE.md')
+    page('walkthrough', 'Priya’s ₹8 lakh request', 'Follow Priya’s wedding-loan example: minimal budget clarifications, the stress that binds and the verdict on her original request.', ROOT / 'docs/handoff/WALKTHROUGH.md')

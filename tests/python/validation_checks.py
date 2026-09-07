@@ -668,6 +668,20 @@ def reviewer_page_checks():
             elif not target.startswith(("https://", "http://")):
                 check(group, f"{name} local link {target}", (page.parent / target).is_file())
     check(group, "walkthrough presents Priya’s written case and card", "Priya" in content and 'class="negotiation-card example-card"' in content)
+    guide = (ROOT / "review/rules.html").read_text()
+    check(group, "rules quick read and plain decision flow", all(label in guide for label in [
+        "Quick read", "Household limit", "Lender estimate", "Funding check", "Stress test", "Final result",
+    ]))
+    check(group, "walkthrough quick read and eleven steps", "Quick read:" in content and "11 · What the reviewer should inspect next" in content)
+    check(group, "facts and demonstration assumptions separated", "Priya’s supplied facts" in content and content.count("Demonstration assumption — confirm with the borrower.") == 12)
+    check(group, "both guides link formatted Markdown", all(
+        f"https://github.com/ActiveAngrily/borrower_copilot/blob/main/{path}" in page
+        for page in [guide, content] for path in ["docs/product/DECISION_GUIDE.md", "docs/handoff/WALKTHROUGH.md", "docs/product/RULES.md"]
+    ))
+    check(group, "no invented smaller wedding or savings recommendation", all(
+        old not in content for old in ["₹4,10,670", "₹6,00,000", "₹2,00,000"]
+    ) and "No amount recommended" in content and "Do not borrow under assessed conditions" in content)
+
 
 
 def main():

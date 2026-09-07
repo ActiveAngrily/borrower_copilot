@@ -1,12 +1,21 @@
 # Decision Guide
 
-The essential rules behind Lokta Borrower Copilot. Read this first; use the [full rules and source register](RULES.md) for individual rule IDs, derivations, evidence, conflicts and historical decisions.
+## Quick read · The decision in 30 seconds
 
-This is an illustrative borrowing assessment, not a loan application, lender approval, personalized fair-rate promise or guarantee of safety. Numerical thresholds below are adopted prototype assumptions unless identified as arithmetic. Evidence in the register was checked on 6 September 2026; this guide does not reverify current lender or regulatory terms.
+**The problem:** A lender may offer more than a household can comfortably repay. Lokta checks both views, then checks whether the loan actually funds the purpose.
 
-## 01 · How a decision is made
+**Four outcomes:** Borrow · Borrow less · Do not borrow under assessed conditions · Incomplete assessment. Each comes with reasons and a Negotiation Card.
 
-Household budget → separate stress tests → conservative capacity → lender and product limits → fees and purpose funding → verdict + Negotiation Card.
+**Decision sequence:** Household limit → Stress test → Lender estimate → Funding check → Final result.
+
+- **Keep the two limits separate.** Lender access never raises household affordability.
+- **Keep unknowns honest.** Unknown is not zero; ranges are not averaged.
+- **Use today’s resources.** Projected income and reserves cannot increase current recurring capacity.
+- **Check the whole plan.** Fees, stress and repayment distress matter as well as EMI.
+
+**Scope:** Illustrative guidance, not lender approval or a safety guarantee. Numerical thresholds are prototype judgements unless identified as arithmetic. External evidence was checked on 6 September 2026; this guide does not reverify current terms.
+
+## 01 · Final result: what each outcome means
 
 | Result | Essential condition |
 | --- | --- |
@@ -21,7 +30,7 @@ A lender maximum never increases household capacity. A lower EMI alone does not 
 
 Technical references: P01–P04, P19; AV; NC6; ST57–ST76.
 
-## 02 · Count the right money, once
+## 02 · Household limit: count the right money, once
 
 - Use INR and explicit periods. Current net income is after work costs and taxes, before household spending and debt. Add only confirmed contributions available to this same budget, net of outside commitments.
 - Match household spending and debt to that income. Count card spending and settlement once. Lender calculations separately include all applicant/co-borrower obligations, including payments made by others.
@@ -33,13 +42,13 @@ Technical references: P01–P04, P19; AV; NC6; ST57–ST76.
 
 Technical references: P07–P09, P14; IR; ID; ST39–ST56.
 
-## 03 · Protect the household first
+## 03 · Stress test: leave room for difficult months
 
-For positive current monthly income I, spending E and existing debt D, the base new-loan monthly ceiling is:
+**Rule:** For positive current monthly income I, spending E and existing debt D, the base new-loan monthly ceiling is:
 
 `max(0, min(0.35 × I − D, 0.90 × I − E − D))`
 
-The 35% total-debt allocation and 10% remaining headroom are our judgements, not universal safe ratios. Headroom is not proof of accumulated savings. Non-positive income supports no positive capacity; missing core facts cannot establish capacity. Mandatory recurring loan charges also consume the ceiling.
+**Why it matters:** The 35% total-debt allocation and 10% remaining headroom are our judgements, not universal safe ratios. Headroom is not proof of accumulated savings. Non-positive income supports no positive capacity; missing core facts cannot establish capacity. Mandatory recurring loan charges also consume the ceiling.
 
 | Test | What changes |
 | --- | --- |
@@ -57,7 +66,7 @@ Use the lowest supported applicable capacity, then its conservative principal en
 
 Technical references: C1–C8; P18–P19; ST1–ST76.
 
-## 04 · Keep lender access separate
+## 04 · Lender estimate: access is a separate question
 
 Lender repayment allowance is `max(0, β × J − applicant debt)`, where J is current record-supported monthly net income, conditional on lender acceptance. Partial support is allowed; unknown J is not zero. No automatic informal-income haircut, occupation cutoff, synthetic score or score-based rate discount applies.
 
@@ -79,9 +88,11 @@ Unknown score, verified no-score status and current debt remain distinct.
 
 Technical references: L; IR; RT; PC1–PC8. External evidence in the full register: E06/E09/E13/E14/E18.
 
-## 05 · Check funding and total cost
+## 05 · Funding check: a manageable EMI is not enough
 
-Principal is not cash available for the purpose. Arithmetic keeps four fee categories separate:
+**Why it matters:** Principal is not cash available for the purpose. Fees can leave a funding gap even when the EMI fits.
+
+**Rule:** Keep financed, deducted, separately paid upfront and recurring fees separate:
 
 `Purpose proceeds = principal − financed fees − deducted fees`
 
@@ -99,11 +110,13 @@ Separately verify that own funds cover upfront fees. Own funds exclude protected
 
 The benchmark applies 18% to ordinary taxable processing, not every charge or ordinary loan interest; inclusive fees are not taxed twice. All benchmark fees are deducted at disbursal, with no financed or recurring fees, first payment after one month and no contingent event. Use the larger fee for conservative funding. These packages are conditional, Low-confidence assumptions, not complete actual offers, promised waivers or market-wide cost bounds.
 
-Actual APR uses complete quoted monthly cash flows and net initial benefit: monthly IRR × 12, expressed as a percentage, not a compounded annual rate. Interest rate and APR are different. Support one disbursement and monthly reducing-balance or explicitly flat repayment; revolving credit, multiple disbursements, moratoria, balloons and irregular instalments are unsupported. Floating comparisons use a current-rate baseline, not a lifetime-rate guarantee.
+**APR:** Use complete quoted monthly cash flows and net initial benefit: monthly IRR × 12, expressed as a percentage, not a compounded annual rate. Interest rate and APR are different.
 
-Reconcile the stated rate and quoted repayment without silently repairing either. A complete supported schedule can establish cash-flow APR even if the rate label is unclear. Unknown mandatory fees keep actual APR incomplete unless defensible approved bounds exist; zero must be explicit. Keep requested and alternative scenarios separate.
+**Supported offers:** One disbursement and monthly reducing-balance or explicitly flat repayment; revolving credit, multiple disbursements, moratoria, balloons and irregular instalments are unsupported. Floating comparisons use a current-rate baseline, not a lifetime-rate guarantee.
 
-The recommendation cannot exceed the request, conservative stress-aware capacity or available conservative lender limit. Floor maximum principal, ceil minimum funding need, and recheck fees, product limits and funding at that amount. Retain internal precision; show whole-rupee principal, monetary detail to two decimals where needed and rates/APR to two decimals.
+**Unknown or inconsistent terms:** Reconcile the stated rate and quoted repayment without silently repairing either. A complete supported schedule can establish cash-flow APR even if the rate label is unclear. Unknown mandatory fees keep actual APR incomplete unless defensible approved bounds exist; zero must be explicit. Keep requested and alternative scenarios separate.
+
+**Amount selection:** The recommendation cannot exceed the request, conservative stress-aware capacity or available conservative lender limit. Floor maximum principal, ceil minimum funding need, and recheck fees, product limits and funding at that amount. Retain internal precision; show whole-rupee principal, monetary detail to two decimals where needed and rates/APR to two decimals.
 
 **Basis and limitations:** Funding and cost calculations use cash-flow arithmetic, checked external fee evidence and the model’s stated fee packages. Package allowances remain product judgements, not confirmed actual charges or universal lender limits.
 
@@ -122,7 +135,7 @@ Technical references: P05–P06, P10–P13; U; ST77–ST92.
 
 ## 07 · Evidence, privacy and review
 
-Every important claim or number must trace to borrower inputs, a calculation, a labelled judgement or a directly supporting checked source. A published fact is not automatically an adopted rule. Do not average conflicting lender terms, treat calculator sliders as eligibility, or present “starting from” rates as personalized fair prices. Pending and superseded evidence cannot support unconditional claims. The full register retains source scope, dates, unresolved conflicts and the distinction between regulation and lender-specific terms.
+Every important number identifies its borrower inputs, calculation or labelled judgement. External claims need directly supporting checked sources; a published fact is not automatically an adopted rule. Do not average conflicting lender terms, treat calculator sliders as eligibility, or present “starting from” rates as personalized fair prices. Pending and superseded evidence cannot support unconditional claims. The full register retains source scope, dates, unresolved conflicts and the distinction between regulation and lender-specific terms.
 
 Answers stay in browser memory: no login, uploads, storage, URL answers, analytics or automatic transmission. Printing and sharing happen only through explicit user actions. The Negotiation Card reuses the assessment result and is not a lender-issued Key Facts Statement; request the lender’s complete terms and charges.
 
@@ -136,8 +149,9 @@ Run `node tests/js/rules.test.mjs` and `python3 tests/python/validation_checks.p
 
 ## Go deeper
 
-- [Full rules and source register](RULES.md): what, value, why, source and individual rule references.
+- [Decision Guide on GitHub](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/product/DECISION_GUIDE.md): formatted copy of this guide.
+- [Full rules and source register](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/product/RULES.md): what, value, why, source and individual rule references.
 - [Analytical specification](ANALYTICAL_RULES.md): equations, edge cases and derivations.
 - [Stress specification](STRESS_TESTING.md): scenarios, confidence and verdict precedence.
-- [Written walkthrough](../handoff/WALKTHROUGH.md): five-minute implementation tour.
+- [Written walkthrough](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/handoff/WALKTHROUGH.md): Priya’s original request, exact inputs and calculated result.
 - [Persona run-throughs](../validation/PERSONA_RUNTHROUGHS.md): supplied cases and their unresolved facts.

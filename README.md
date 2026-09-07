@@ -38,7 +38,9 @@ No installation or build step is required. From the repository root:
 python3 -m http.server 8000
 ```
 
-Open [http://localhost:8000](http://localhost:8000), then stop the server with `Ctrl+C`.
+Live hosted site: [anantjamuar.me/borrower_copilot](https://anantjamuar.me/borrower_copilot/)
+
+For local development, open [http://localhost:8000](http://localhost:8000), then stop the server with `Ctrl+C`.
 
 ## For reviewers
 
@@ -46,10 +48,10 @@ This is Anant Jamuar’s submission for the Lokta Borrower Copilot build challen
 
 | Deliverable | Where to start |
 | --- | --- |
-| Working prototype | Open the app, choose a borrowing purpose and follow the adaptive assessment through to the Negotiation Card. |
-| Rules and assumptions | Click **Rules** for the [Decision Guide](docs/product/DECISION_GUIDE.md): essential decision logic, thresholds, exceptions, comparison tables and a visual decision sequence. |
+| Working prototype | Open the [live app](https://anantjamuar.me/borrower_copilot/), choose a borrowing purpose and follow the adaptive assessment through to the Negotiation Card. |
+| Rules and assumptions | Click **Rules** for the [Decision Guide](docs/product/DECISION_GUIDE.md): a 30-second overview, decision logic, thresholds, exceptions and comparison tables, with expandable technical references on the website. |
 | Full evidence | Follow the guide’s link to the [full rules and source register](docs/product/RULES.md) for individual rule IDs, derivations, source context and unresolved evidence. |
-| Walkthrough | Click **Walkthrough** for [Priya’s worked example](docs/handoff/WALKTHROUGH.md), including every added assumption, the app’s recommendation and a Negotiation Card. |
+| Walkthrough | Click **Walkthrough** for [Priya’s worked example](docs/handoff/WALKTHROUGH.md), with eleven short steps separating supplied facts, labelled demonstration assumptions, exact inputs, calculations and the Negotiation Card. |
 
 The header links open in a new tab so the current assessment keeps its answers. The reviewer pages use the same plum palette, editorial typography and responsive layout as the assessment.
 

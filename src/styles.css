@@ -205,6 +205,7 @@ footer { padding:25px; text-align:center; color:var(--muted); font-size:.84rem; 
 .decision-flow { display:grid; grid-template-columns:repeat(4,1fr); list-style:none; padding:0; margin:28px 0 18px; background:var(--brand); color:#fff; }
 .decision-flow li { padding:24px; border-right:1px solid #79586f; font:1.3rem/1.25 Georgia,serif; }
 .decision-flow span { display:block; margin-bottom:14px; font:700 .68rem/1.5 system-ui,sans-serif; letter-spacing:.1em; color:#e0c9d6; }
+.guide-content .decision-flow li { color:#fff; }
 .guide-jumps { display:flex; flex-wrap:wrap; gap:8px 22px; padding:10px 0 24px; font-size:.82rem; }
 .guide-jumps a { padding:8px 0; }
 .guide-content { max-width:960px; margin:28px auto; }

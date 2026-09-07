@@ -1,66 +1,97 @@
 # Priya’s ₹8 lakh request — a worked walkthrough
 
-Follow the assignment’s original borrowing request through the app. This example shows the inputs, calculation and Negotiation Card in writing.
+## 01 · The reviewer’s question
 
-**Assignment facts stay fixed.** This example adds only the budget clarifications needed to run the assessment. It does not invent a cheaper wedding, extra savings, a lender offer or income evidence. The [provided-facts-only run](../validation/PERSONA_RUNTHROUGHS.md) remains unchanged and incomplete; this illustrative completion is labelled separately.
+**Quick read:** Does Priya’s original ₹8,00,000 wedding-loan request fit her household budget? With the minimal demonstration clarifications below, the app returns **Do not borrow under assessed conditions**: the ₹31,386.28 benchmark payment exceeds the ₹16,800 stressed monthly limit.
 
-## 01 · Keep the original case intact
+Income evidence remains unknown, so lender access stays unresolved. There is no invented smaller wedding, extra savings, lender offer or positive recommendation. The [assignment-only run](../validation/PERSONA_RUNTHROUGHS.md) remains incomplete and unchanged.
 
-Priya is 29, salaried, earning ₹1,10,000 net each month. She requests ₹8,00,000 for a wedding, pays ₹28,000 rent and has a ₹14,000 car EMI with two years remaining. Her reported credit score is 780.
+## 02 · Priya’s supplied facts
 
-The app asks whether the score is known; it does not infer a numerical rate discount from 780. Rent alone is not a complete household budget.
+| Assignment fact | Supplied value |
+| --- | --- |
+| Age and work | 29; salaried |
+| Net monthly income | ₹1,10,000 |
+| Request and purpose | ₹8,00,000 for a wedding |
+| Rent | ₹28,000/month |
+| Existing debt | ₹14,000/month car EMI; two years remaining |
+| Reported credit score | 780 |
 
-## 02 · Enter these answers
+The app records that her score is known; it does not award a numerical rate discount. Rent alone is not total household spending.
 
-Enter each amount in the lower field and leave the upper field blank. The app treats that as a single amount. The additions below are demonstration assumptions requiring confirmation, not facts supplied by the reviewer.
+## 03 · Minimal additional clarifications
+
+**Demonstration assumption — confirm with the borrower.** Add ₹17,000 of non-rent essentials, giving ₹45,000 total monthly spending. This estimate is not derived from the brief.
+
+**Demonstration assumption — confirm with the borrower.** Treat the stated salary as stable, with no other household contribution; treat the supplied car EMI as the full applicant debt and currently paid without distress.
+
+**Demonstration assumption — confirm with the borrower.** Test the ₹8 lakh stated funding need with no unreported own funds credited and no smaller plan. These entries do not establish the total wedding budget, prove Priya has no savings or claim she would reject alternatives.
+
+**Still unknown:** Income evidence, emergency reserves, additional upcoming commitments and actual lender terms. Leave these unresolved rather than inventing answers.
+
+The app cannot collect the car loan’s end date. It retains the ₹14,000 EMI throughout its 36-month comparison, conservatively omitting the release after the supplied two-year remaining term.
+
+## 04 · Exact app inputs
+
+Enter each amount in the lower field; leave its upper field blank to represent a single value. The basis column distinguishes supplied facts, demonstration entries and unknowns.
 
 | Screen / field | Choice or value | Basis |
 | --- | --- | --- |
 | Purpose / request | Wedding or another personal expense / ₹8,00,000 | Assignment; unchanged |
 | Monthly net income / type | ₹1,10,000 / Salaried | Assignment |
-| Material income variation? | No | Minor clarification assumed for the stated salary |
+| Material income variation? | No | Demonstration assumption — confirm with the borrower. Minor clarification assumed for the stated salary |
 | Records support income? | I don’t know | Not supplied; no evidence is invented |
-| Household contribution | ₹0 | Assume no additional contribution to the stated budget |
-| Total monthly spending | ₹45,000 | Supplied ₹28,000 rent plus an illustrative ₹17,000 for other recurring essentials; excludes the car EMI |
-| Monthly debt | ₹14,000 | Supplied car EMI; assume no additional required payments |
-| Every applicant/co-borrower debt included? | Yes, same total | Assume the stated EMI is the complete debt total |
-| Current repayment problem? | No | Assume the stated car loan is current; the brief reports no distress |
+| Household contribution | ₹0 | Demonstration assumption — confirm with the borrower. Assume no additional contribution to the stated budget |
+| Total monthly spending | ₹45,000 | Demonstration assumption — confirm with the borrower. Supplied ₹28,000 rent plus an illustrative ₹17,000 for other recurring essentials; excludes the car EMI |
+| Monthly debt | ₹14,000 | Demonstration assumption — confirm with the borrower. Supplied car EMI; assume no additional required payments |
+| Every applicant/co-borrower debt included? | Yes, same total | Demonstration assumption — confirm with the borrower. Assume the stated EMI is the complete debt total |
+| Current repayment problem? | No | Demonstration assumption — confirm with the borrower. Assume the stated car loan is current; the brief reports no distress |
 | Age / score availability | 29 / I know my score | Assignment |
-| Purpose cost | ₹8,00,000 | Use the stated borrowing need as the amount to fund for this test, not a claim about the total wedding budget |
-| Own funds | ₹0 | Credit no unreported own funds; this does not claim Priya has no savings |
-| Smaller-plan viability | No | Evaluate the original plan only; no smaller wedding is supplied or invented |
+| Purpose cost | ₹8,00,000 | Demonstration assumption — confirm with the borrower. Use the stated borrowing need as the amount to fund for this test, not a claim about the total wedding budget |
+| Own funds | ₹0 | Demonstration assumption — confirm with the borrower. Credit no unreported own funds; this does not claim Priya has no savings |
+| Smaller-plan viability | No | Demonstration assumption — confirm with the borrower. Evaluate the original plan only; no smaller wedding is supplied or invented |
 | Emergency reserves | Leave blank | Not supplied; remain unknown |
 | Upcoming commitment | Skip this refinement | Not supplied; no “none” assertion is invented |
 | Actual lender offer | No—use the benchmark | No actual offer supplied |
 
-The only added spending estimate is ₹17,000 beyond rent. It is not derived from the brief and should be replaced with Priya’s answer in a real assessment. The zero-contribution and complete/current-debt assumptions also need confirmation.
+The route is Need → Income → Budget → Credit → Funding → Resilience. The stable-salary personal path skips property, vehicle, productive-income and history panels; no actual-offer panel is needed.
 
-The browser does not collect debt end dates, so it conservatively retains the ₹14,000 payment throughout its 36-month comparison. The assignment’s two-year remaining term is preserved here; no early-release benefit is silently added to current capacity.
+## 05 · How the household limit is calculated
 
-The route is Need → Income → Budget → Credit → Funding → Resilience. The personal, stable-salary path skips property, vehicle, productive-income and income-history panels. No offer panel is needed.
+The model uses the lower of its debt-allocation and cash-budget limits:
 
-## 03 · Test the requested loan
+`min(35% × ₹1,10,000 − ₹14,000, 90% × ₹1,10,000 − ₹45,000 − ₹14,000) = ₹24,500/month`
 
-The base monthly new-loan ceiling is:
+The 35% allocation and 10% headroom are prototype judgements, not universal lending rules. This is the base new-loan limit before stress.
 
-`min(35% × ₹1,10,000 − ₹14,000, 90% × ₹1,10,000 − ₹45,000 − ₹14,000) = ₹24,500`
-
-The app then runs the income and expense shocks separately. A 20% income drop reduces income to ₹88,000 and the monthly ceiling to ₹16,800. The separate 10% expense rise leaves a ₹24,500 ceiling. The income-drop case binds. These are prototype sensitivities, not predictions.
+## 06 · Which stress scenario binds
 
 | Comparison | Monthly amount | Meaning |
 | --- | --- | --- |
-| Base new-loan ceiling | ₹24,500 | Before stress |
-| Income-drop ceiling | ₹16,800 | Binding three-month scenario |
-| Expense-rise ceiling | ₹24,500 | Separate three-month scenario |
-| ₹8 lakh request at 24%, 36 months | ₹31,386.28 | Exceeds both the base and stress-aware ceilings |
+| Base household limit | ₹24,500 | Before stress |
+| Income down 20% | ₹16,800 | Binding three-month scenario |
+| Expenses up 10% | ₹24,500 | Separate three-month scenario |
+| ₹8 lakh at 24%, 36 months | ₹31,386.28 | Requested payment exceeds both limits |
 
-The stress-aware principal range is ₹4,28,212–₹5,20,728 across the benchmark rates. Its lower endpoint governs. That range is a capacity estimate, not a recommendation to shrink the wedding. A smaller loan needs a viable purpose, which the assignment has not supplied.
+The income-drop case uses ₹88,000 income. The model tests it separately from the expense rise; these are sensitivities, not forecasts or regulations.
 
-The funding check also shows a ₹10,670 gap under the conservative benchmark fee deduction: ₹8 lakh principal leaves ₹7,89,330 of proceeds against the ₹8 lakh funding need used in this test. Actual fees and any available own funds remain to be confirmed. Even removing this fee gap would not make the requested payment fit the assessed ceiling.
+The resulting safe principal range is ₹4,28,212–₹5,20,728. Its lower endpoint governs. It is a capacity estimate, not a recommendation to shrink the wedding: no viable smaller purpose has been supplied.
 
-## 04 · Priya’s Negotiation Card
+## 07 · Why lender access remains unresolved
 
-**Original ₹8 lakh request · Minor illustrative budget clarifications · 36-month benchmark.** These are outputs from the app’s existing engine, not a lender offer or a Key Facts Statement.
+Income records are unknown, so the lender estimate is **Not estimable**. A known score cannot substitute for supported income or lender acceptance. The app can reject the request under its household limit without pretending to know whether a lender would approve it.
+
+## 08 · Funding and fee check
+
+Under the conservative benchmark fee package:
+
+`₹8,00,000 principal − ₹10,670 fees = ₹7,89,330 purpose proceeds`
+
+Against the ₹8 lakh funding need used in this demonstration, with no own funds credited, the gap is **₹10,670**. Actual fees and own funds need confirmation. Closing that gap alone would not make the requested EMI fit the household limit.
+
+## 09 · Priya’s Negotiation Card
+
+**Calculated result · Original request · 36-month benchmark.** The app’s existing engine produces these values from the exact demonstration inputs. This is illustrative guidance, not a lender offer, approval, guarantee or Key Facts Statement.
 
 | Card field | Example result |
 | --- | --- |
@@ -75,23 +106,26 @@ The funding check also shows a ₹10,670 gap under the conservative benchmark fe
 | Funding check | ₹10,670 gap under the upper benchmark fee package; no unreported own funds credited |
 | Conditions and unknowns | Confirm non-rent spending, contributions, all debt and repayment status. Income evidence, reserves and actual lender terms remain unknown; no smaller wedding is assumed. |
 
-The overall verdict is not “Incomplete assessment,” but some individual outputs correctly remain unknown. In particular, we do not fabricate income records merely to obtain a lender estimate. The app can explain why the requested borrowing fails its household boundary without claiming to know what a lender would approve.
+The overall result is a verdict, while individual outputs can remain unknown. Capacity and benchmark pricing remain Low confidence; confidence is not approval probability. Reserves would not increase recurring capacity even if later supplied.
 
-## 05 · What the example demonstrates
+## 10 · What would change the result
 
-- A known score and strong salary do not replace the household cash-flow check.
-- The ₹8 lakh request remains unchanged. The engine returns an adverse verdict under the stated assumptions; the walkthrough does not manufacture a positive outcome.
-- Unknown optional reserves and income evidence stay unknown. Reserves would not increase recurring capacity anyway.
-- If the spending estimate is wrong, replace it and rerun. At ₹55,000 total spending the stressed ceiling falls to ₹10,200 and the same request still fails. This is a sensitivity check, not another invented fact about Priya.
-- Removing total spending or the contribution clarification returns the overall assessment to Incomplete assessment. That is the correct treatment of missing core inputs.
+- Replace the spending estimate with Priya’s answer. At ₹55,000 total spending, the stressed limit falls to ₹10,200 and the original request still fails; that is a sensitivity example, not another fact about her.
+- Remove spending or contribution information and the overall result returns to Incomplete assessment. Unknown core inputs never become zero.
+- Confirm income evidence to refine lender access. A larger lender estimate still cannot raise household affordability.
+- Enter complete actual offer terms to replace the conditional benchmark. Unknown fees or unsupported repayment structures must remain unresolved, not guessed.
 
-The next conversation is to confirm the missing budget facts and request complete lender terms, not to presume Priya will change her wedding. The Negotiation Card makes the assessed boundary and remaining unknowns visible together.
+Confirm the budget and funding assumptions before acting. Do not presume Priya will change her wedding to fit a recommendation.
+
+## 11 · What the reviewer should inspect next
+
+Reproduce the exact inputs, compare the card with the app, then check the provided-facts-only run to see why missing core inputs matter. The full register holds individual rule IDs, derivations, source dates and evidence limitations.
 
 ## Go deeper
 
-- [Decision Guide](../product/DECISION_GUIDE.md): essential rules and thresholds.
-- [Full rules and source register](../product/RULES.md): rule IDs, rationale and evidence limitations.
-- [Provided-facts-only persona runs](../validation/PERSONA_RUNTHROUGHS.md): the original case with no additional assumptions.
-- [Exact example inputs](PRIYA_EXAMPLE.json): reproducible engine inputs; assumptions are documented above.
-- [Executable example checks](../../tests/js/rules.test.mjs): verify the verdict, card numbers and unknown-data handling.
-- [GitHub repository](https://github.com/ActiveAngrily/borrower_copilot): source, README and local startup instructions.
+- [Decision Guide](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/product/DECISION_GUIDE.md): quick rules and thresholds.
+- [Walkthrough on GitHub](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/handoff/WALKTHROUGH.md): formatted copy of this worked example.
+- [Full rules and source register](https://github.com/ActiveAngrily/borrower_copilot/blob/main/docs/product/RULES.md): detailed logic and external evidence.
+- [Provided-facts-only persona runs](../validation/PERSONA_RUNTHROUGHS.md): original facts with no additions.
+- [Exact example inputs](PRIYA_EXAMPLE.json): reproduce the calculation.
+- [Executable example checks](../../tests/js/rules.test.mjs): verdict, card numbers and unknown-data handling.
