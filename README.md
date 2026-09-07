@@ -12,6 +12,7 @@
 
 <p>
   <a href="#quick-start">Quick start</a> ·
+  <a href="#for-reviewers">For reviewers</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#verification">Verification</a> ·
   <a href="#project-map">Project map</a>
@@ -38,6 +39,19 @@ python3 -m http.server 8000
 ```
 
 Open [http://localhost:8000](http://localhost:8000), then stop the server with `Ctrl+C`.
+
+## For reviewers
+
+This is Anant Jamuar’s submission for the Lokta Borrower Copilot build challenge. The homepage sidebar suggests a review sequence, and the header gives direct access to the written deliverables without interrupting an assessment in progress.
+
+| Deliverable | Where to start |
+| --- | --- |
+| Working prototype | Open the app, choose a borrowing purpose and follow the adaptive assessment through to the Negotiation Card. |
+| Rules and assumptions | Click **Rules** for the [Decision Guide](docs/product/DECISION_GUIDE.md): essential decision logic, thresholds, exceptions, comparison tables and a visual decision sequence. |
+| Full evidence | Follow the guide’s link to the [full rules and source register](docs/product/RULES.md) for individual rule IDs, derivations, source context and unresolved evidence. |
+| Walkthrough | Click **Walkthrough** for the [written tour](docs/handoff/WALKTHROUGH.md). The video is forthcoming; the page clearly marks it as coming soon. |
+
+The header links open in a new tab so the current assessment keeps its answers. The reviewer pages use the same plum palette, editorial typography and responsive layout as the assessment.
 
 ## How it works
 
@@ -104,9 +118,9 @@ node tests/js/rules.test.mjs
 python3 tests/python/validation_checks.py
 ```
 
-The JavaScript check exercises the running rule engine, adaptive routes, verdict classes, offer calculations, floating-rate stress, and inactive-answer handling. The Python check acts as an independent specification oracle and validates documentation, UI invariants, accessibility-related tokens, and the no-persistence/no-network boundary.
+The JavaScript check exercises the running rule engine, adaptive routes, verdict classes, offer calculations, floating-rate stress, and inactive-answer handling. The Python check acts as an independent specification oracle and validates documentation, UI invariants, accessibility-related tokens, and the no-persistence/no-network boundary. It also checks that reviewer pages match their Markdown sources and that their local links and section anchors resolve.
 
-The current validation baseline is **550 checks with zero failures**.
+The current validation baseline is **589 checks with zero failures**.
 
 ## Project map
 
@@ -115,6 +129,8 @@ index.html                 Semantic questionnaire, results, and Negotiation Card
 src/app.mjs                Form state, adaptive navigation, rendering, print/share/reset
 src/rules.mjs              Pure calculations, routes, output states, and verdicts
 src/styles.css             Responsive Lokta-inspired visual system and print styles
+src/build_guides.py        Generates reviewer pages from the Markdown sources
+review/                    Static Decision Guide and walkthrough webpages
 assets/lokta-monogram.svg  Supplied Lokta mark used in the app
 tests/js/                  Small executable checks for the JavaScript rule engine
 tests/python/              Independent validation oracle
@@ -125,7 +141,16 @@ docs/handoff/              Implementation handoff and five-minute walkthrough
 reference/                 Original build-challenge brief kept as source material
 ```
 
-For the shortest implementation tour, read [docs/handoff/WALKTHROUGH.md](docs/handoff/WALKTHROUGH.md). For the authoritative analytical boundary, read [docs/product/RULES.md](docs/product/RULES.md).
+## Updating reviewer content
+
+Edit [DECISION_GUIDE.md](docs/product/DECISION_GUIDE.md) for the concise rules or [WALKTHROUGH.md](docs/handoff/WALKTHROUGH.md) for the written tour, then regenerate the checked-in pages:
+
+```bash
+python3 src/build_guides.py
+python3 tests/python/validation_checks.py
+```
+
+No generation step is needed to run the app. When the video is ready, replace the walkthrough placeholder in `src/build_guides.py` with the recording and regenerate the page.
 
 ## Scope and limitations
 

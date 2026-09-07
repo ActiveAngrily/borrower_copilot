@@ -71,7 +71,7 @@ Each amount names its state, confidence where applicable, and reason. The dark o
 
 ## 7. Privacy, verification, and limitations
 
-The app is four static files with no framework, build step, backend, login, upload, analytics, browser storage, or application network call. Answers exist only in the open tab and reset clears them from the interface.
+The app runs from static files with no framework, runtime build step, backend, login, upload, analytics, browser storage, or application network call. The header opens the Decision Guide and this walkthrough in a separate tab, preserving the active assessment. Reviewer pages are generated from their Markdown sources with `python3 src/build_guides.py`; the video is marked coming soon until the recording is supplied. Answers exist only in the open tab and reset clears them from the interface.
 
 `rules.test.mjs` checks the running JavaScript engine, including all three verdicts, adaptive routes, actual and incomplete offers, floating stress, history, commitments, reserves, productive income, stale irrelevant values, and flat/reducing arithmetic. `validation_checks.py` retains the wider approved specification oracle and adds Stage 15 checks for panel size, route wiring, design tokens, reduced motion, and the absence of persistence or network code. Final browser checks cover the personal path, the full property-backed path with a floating offer, route changes, back navigation, results and the Negotiation Card.
 

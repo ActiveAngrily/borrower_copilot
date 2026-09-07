@@ -1,0 +1,119 @@
+# Decision Guide
+
+The essential rules behind Lokta Borrower Copilot. Read this first; use the [full rules and source register](RULES.md) for individual rule IDs, derivations, evidence, conflicts and historical decisions.
+
+This is an illustrative borrowing assessment, not a loan application, lender approval, personalized fair-rate promise or guarantee of safety. Numerical thresholds below are adopted prototype assumptions unless identified as arithmetic. Evidence in the register was checked on 6 September 2026; this guide does not reverify current lender or regulatory terms.
+
+## 01 · How a decision is made
+
+Household budget → separate stress tests → conservative capacity → lender and product limits → fees and purpose funding → verdict + Negotiation Card.
+
+| Result | Essential condition |
+| --- | --- |
+| Borrow | The requested amount fits the assessed capacity, access, product, funding and repayment-status conditions. |
+| Borrow less | A strictly smaller, confirmed useful plan is fully funded within those limits. Choose the smallest feasible whole-rupee principal. |
+| Do not borrow under assessed conditions | Known infeasibility or active repayment distress prevents ordinary new borrowing. This is not a permanent label. |
+| Incomplete assessment | Required facts cannot be bounded. Missing core income, expenses or debt stays incomplete even with distress; separately advise stabilization before new debt. |
+
+A lender maximum never increases household capacity. A lower EMI alone does not make an unfunded or unusable plan viable. Unknown access leaves borrower-only guidance conditional. Supported scenarios that disagree remain visible. **Trace:** P01–P04, P19; AV; NC6; ST57–ST76.
+
+## 02 · Count the right money, once
+
+- Use INR and explicit periods. Current net income is after work costs and taxes, before household spending and debt. Add only confirmed contributions available to this same budget, net of outside commitments.
+- Match household spending and debt to that income. Count card spending and settlement once. Lender calculations separately include all applicant/co-borrower obligations, including payments made by others.
+- Use required payments, not outstanding balances. Normalize recurring costs to months; the full specification uses the peak combined calendar-month debt across the tenure, not the sum of unrelated peaks. Unknown debt end dates imply continuation. Include agreed catch-up once; never invent an arrears repayment schedule.
+- Historical income uses up to the latest 12 completed months, preserving shorter coverage. Annual income divided by 12 is usable only with compatible definitions, period and current confirmation.
+- Property, reserves, a partner’s full salary and projected business/vehicle earnings do not become current repayment income.
+
+**Trace:** P07–P09, P14; IR; ID; ST39–ST56. These are budget-boundary judgements, not lender income-recognition guarantees.
+
+## 03 · Protect the household first
+
+For positive current monthly income I, spending E and existing debt D, the base new-loan monthly ceiling is:
+
+`max(0, min(0.35 × I − D, 0.90 × I − E − D))`
+
+The 35% total-debt allocation and 10% remaining headroom are our judgements, not universal safe ratios. Headroom is not proof of accumulated savings. Non-positive income supports no positive capacity; missing core facts cannot establish capacity. Mandatory recurring loan charges also consume the ceiling.
+
+| Test | What changes |
+| --- | --- |
+| Income shock · always | Income falls 20%, for three months. |
+| Expense shock · always | Spending rises 10%, for three months; tested separately from income. |
+| Observed low income · when available | Test a compatible lowest-income month; do not cut it by another 20% or call it a forecast. |
+| Floating rate · when supported | Add 2 percentage points; show same-tenure EMI and same-EMI duration. Fixed rates are excluded; unknown or unsupported terms stay conditional. |
+| Commitment · when disclosed | Account for an expense due within 12 months, timing and earmarks; do not count spending twice. |
+| Fees · when applicable | Include upfront and recurring effects; never invent missing actual charges. |
+| Productive use · when relevant | Show delayed-income and no-upside exposure separately; projections never raise safe capacity or the recommendation. |
+
+Use the lowest supported applicable capacity, then its conservative principal endpoint. Combine shocks only when reported or contractually coincident. Reserves show temporary coverage after purchase, fees and earmarks; they never raise recurring capacity. Active distress blocks positive ordinary-new-debt advice; a resolved bounce alone is not active distress. **Trace:** C1–C8; P18–P19; ST1–ST76. Shock sizes and horizons are prototype sensitivities, not forecasts or regulatory limits.
+
+## 04 · Keep lender access separate
+
+Lender repayment allowance is `max(0, β × J − applicant debt)`, where J is current record-supported monthly net income, conditional on lender acceptance. Partial support is allowed; unknown J is not zero. No automatic informal-income haircut, occupation cutoff, synthetic score or score-based rate discount applies.
+
+| Illustrative path | Annual reducing rate | Tenures | β | Principal limits | Entry / final repayment age |
+| --- | --- | --- | --- | --- | --- |
+| Personal | 9.99–24% | 36 / 60 months | 40–45% | ₹50,000–₹25 lakh | 21 / 60 |
+| Property-backed business | 13–26% | 36 / 60 months | 40–50% | ₹3–₹25 lakh | 21 / 65 |
+| Electric two-wheeler for income | 11.20–15.70% | 24 / 36 months | 50% | ₹50,000–₹3 lakh | 18 / 65 |
+
+Property adds a cap of 50% of reported value and requires unencumbered applicant-owned property with relevant owners willing to participate. Charged property is unsupported; unknown conditions remain unresolved. Collateral is not income.
+
+The electric path also caps principal at six times J and 85% of on-road price for a new registered vehicle. At least 15% needs separate funding before fees and other constraints; financed fees occupy the principal cap.
+
+Apply all relevant limits together. Never raise capacity to a product minimum. Unknown age or birthday-sensitive maturity keeps eligibility conditional. Compare the two tenures honestly, including when only one or neither works; do not automatically extend. Use internally consistent scenarios, not mixed favorable endpoints.
+
+**Trace:** L; IR; RT; PC1–PC8. Bands, repayment ratios, maturity rules and selected product constraints are model assumptions. E06/E09/E13/E14/E18 give source context, not certification of named-lender eligibility. Unknown score, verified no-score status and current debt remain distinct.
+
+## 05 · Check funding and total cost
+
+Principal is not cash available for the purpose. Arithmetic keeps four fee categories separate:
+
+`Purpose proceeds = principal − financed fees − deducted fees`
+
+`Net initial benefit = purpose proceeds − separately paid upfront fees`
+
+`Funding gap = max(0, purpose cost − purpose proceeds − max(0, own funds − upfront fees))`
+
+Separately verify that own funds cover upfront fees. Own funds exclude protected savings. Seller disbursal counts as purpose funding. Never spend a rupee twice or increase the request to conceal a gap.
+
+| No-offer benchmark | Processing before applicable tax | Additional tax-inclusive budget |
+| --- | --- | --- |
+| Personal | ₹0–₹6,500 | ₹0–₹3,000 |
+| Property-backed business | 0–3% of principal | ₹10,000–₹25,000 |
+| Electric two-wheeler | 3% of principal | ₹0–₹3,000 |
+
+The benchmark applies 18% to ordinary taxable processing, not every charge or ordinary loan interest; inclusive fees are not taxed twice. All benchmark fees are deducted at disbursal, with no financed or recurring fees, first payment after one month and no contingent event. Use the larger fee for conservative funding. These packages are conditional, Low-confidence assumptions, not complete actual offers, promised waivers or market-wide cost bounds.
+
+Actual APR uses complete quoted monthly cash flows and net initial benefit: monthly IRR × 12, expressed as a percentage, not a compounded annual rate. Interest rate and APR are different. Support one disbursement and monthly reducing-balance or explicitly flat repayment; revolving credit, multiple disbursements, moratoria, balloons and irregular instalments are unsupported. Floating comparisons use a current-rate baseline, not a lifetime-rate guarantee.
+
+Reconcile the stated rate and quoted repayment without silently repairing either. A complete supported schedule can establish cash-flow APR even if the rate label is unclear. Unknown mandatory fees keep actual APR incomplete unless defensible approved bounds exist; zero must be explicit. Keep requested and alternative scenarios separate.
+
+The recommendation cannot exceed the request, conservative stress-aware capacity or available conservative lender limit. Floor maximum principal, ceil minimum funding need, and recheck fees, product limits and funding at that amount. Retain internal precision; show whole-rupee principal, monetary detail to two decimals where needed and rates/APR to two decimals. **Trace:** FF; BF; AV; NC. Fee source context: E01/E02/E06/E15–E17; package allowances remain judgement.
+
+## 06 · Make uncertainty visible
+
+- Provided, unknown, not asked, not applicable and explicit zero have different meanings. Outputs separately say estimated, conditional or not estimable; do not substitute a midpoint for a range.
+- Removing an answer must not falsely narrow supported possibilities for the same scenario and compatible remaining facts. Disclose any finite assumption bounds.
+- Confidence is per output: Low or Moderate only, never High or a percentage. Must-only, benchmark and lender-sanction estimates remain Low. Moderate requires method-specific complete current inputs, relevant 12-month variable-income evidence or complete reconciled actual-offer terms; it is not an approval probability.
+- Eight core topics plus up to two conditional topics describe the must-set, not the count of individual fields. Show no more than three related topics per screen. Refinements must affect a number, range, scenario or safety route. Inactive answers stop affecting results; skipped refinements do not become zero.
+
+**Trace:** P05–P06, P10–P13; U; ST77–ST92. More answers alone do not establish more confidence.
+
+## 07 · Evidence, privacy and review
+
+Every important claim or number must trace to borrower inputs, a calculation, a labelled judgement or a directly supporting checked source. A published fact is not automatically an adopted rule. Do not average conflicting lender terms, treat calculator sliders as eligibility, or present “starting from” rates as personalized fair prices. Pending and superseded evidence cannot support unconditional claims. The full register retains source scope, dates, unresolved conflicts and the distinction between regulation and lender-specific terms.
+
+Answers stay in browser memory: no login, uploads, storage, URL answers, analytics or automatic transmission. Printing and sharing happen only through explicit user actions. The Negotiation Card reuses the assessment result and is not a lender-issued Key Facts Statement; request the lender’s complete terms and charges.
+
+Validation checks arithmetic, direction, uncertainty, routing and verdicts. Numerical acceptance tolerances are ₹0.01 and 0.001 percentage point APR; tolerance never permits exceeding a cap. Supplied persona facts retain their gaps; separate complete fixtures demonstrate verdict reachability. The wider specification and supported browser scope are distinguished in the full register.
+
+**Trace:** P15–P17; S1–S19; C01–C10; VA1–VA18. Run `node tests/js/rules.test.mjs` and `python3 tests/python/validation_checks.py` from the repository root.
+
+## Go deeper
+
+- [Full rules and source register](RULES.md): what, value, why, source and individual rule references.
+- [Analytical specification](ANALYTICAL_RULES.md): equations, edge cases and derivations.
+- [Stress specification](STRESS_TESTING.md): scenarios, confidence and verdict precedence.
+- [Written walkthrough](../handoff/WALKTHROUGH.md): five-minute implementation tour.
+- [Persona run-throughs](../validation/PERSONA_RUNTHROUGHS.md): supplied cases and their unresolved facts.

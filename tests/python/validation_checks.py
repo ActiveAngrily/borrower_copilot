@@ -10,6 +10,7 @@ from pathlib import Path
 import math
 import re
 import sys
+import runpy
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -648,6 +649,24 @@ def stage15_ui_checks():
     check(group, "no persistence or network code", not forbidden, forbidden, [])
 
 
+
+def reviewer_page_checks():
+    group = "reviewer-pages"
+    render = runpy.run_path(str(SOURCE / "build_guides.py"))["render"]
+    for name, source in [("rules", PRODUCT / "DECISION_GUIDE.md"),
+                         ("walkthrough", HANDOFF / "WALKTHROUGH.md")]:
+        page = ROOT / "review" / f"{name}.html"
+        content = page.read_text()
+        article = re.search(r'<article class="guide-content">(.*?)</article>', content, re.S)
+        check(group, f"{name} matches Markdown source", article and article[1] == render(source))
+        for target in re.findall(r'href="([^"]+)"', content):
+            if target.startswith("#"):
+                check(group, f"{name} anchor {target}", f'id="{target[1:]}"' in content)
+            elif not target.startswith(("https://", "http://")):
+                check(group, f"{name} local link {target}", (page.parent / target).is_file())
+    check(group, "walkthrough video is explicitly pending", "Coming soon" in content)
+
+
 def main():
     numerical_checks()
     stage11_fixture_checks()
@@ -656,6 +675,7 @@ def main():
     routing_and_persona_checks()
     documentation_checks()
     stage15_ui_checks()
+    reviewer_page_checks()
     for group in sorted(passed):
         print(f"PASS {group}: {passed[group]}")
     print(f"PASS total: {sum(passed.values())}")
